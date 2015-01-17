@@ -6,7 +6,7 @@ require.config({
     },
     paths: {
         Handlebars: '../bower_components/handlebars/handlebars',
-        jquery: '../bower_components/jquery/dist/jquery',
+        jQuery: '../bower_components/jquery/dist/jquery',
         Backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
         Event: '../scripts/mvc/model/Event',

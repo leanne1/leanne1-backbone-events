@@ -16,8 +16,8 @@ define(['underscore', 'Backbone', 'Event'], function(_, Backbone, Event){
 		//+ Remote collection polling
 		//++++++++++++++++++++++++++++++++++
 		//Continually poll server for collection updates
-		//so if events are added concurrently, they will show up on the page
-		//leave a good poll interval so as not to unnecesarily employ the JS event stack
+		//so if new events are added by another use concurrently, they will show up.
+		//Leave a good poll interval so as not to unnecesarily fill the event stack
 		pollRemote: function(){
 			var self = this;
 			this.poll = window.setInterval(function(){
@@ -25,5 +25,6 @@ define(['underscore', 'Backbone', 'Event'], function(_, Backbone, Event){
 			},30000);
 		},
 	)};
+	
 	return Events;
 });
