@@ -136,6 +136,7 @@ module.exports = function (grunt) {
                     optimize: 'none',
                     paths: {
                         'templates': '../../.tmp/scripts/templates',
+                        'handlebars': '../../<%= yeoman.app %>/bower_components/handlebars/handlebars.amd',
                         'jquery': '../../<%= yeoman.app %>/bower_components/jquery/dist/jquery',
                         'underscore': '../../<%= yeoman.app %>/bower_components/lodash/dist/lodash',
                         'backbone': '../../<%= yeoman.app %>/bower_components/backbone/backbone'

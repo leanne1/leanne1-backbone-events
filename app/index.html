@@ -122,27 +122,29 @@
         <!-- endbuild -->
         <script id="event-card-template" type="text/x-handlebars-template">
             <li class="card card-event" data-event-id="{{id}}">
+                
                 <div class="event-date">
                     // TODO: Is this correct use of time el?
                     <time>
                         <span class="event-month">
-                            {{eventMonth}}
+                            {{prettyStartMonth}}
                         </span>
                         <span class="event-date">
-                            {{eventDate}}
+                            {{prettyStartDate}}
                         </span>
                         <span class="event-year">
-                            {{eventYear}}
+                            {{prettyStartYear}}
                         </span>
                     </time>
                 </div>
                 <div class="event-details">
-                    <h3><a>{{eventName}}</a></h3>
+                    <h3><a>{{name}}</a></h3>
                     <button data-event="promote" data-event-id="{{id}}">
                     Promote<span class="hide-visually"> this event</span>
                     </button>
                 </div>
             </li>
+
         </script>   
 </body>
 </html>
