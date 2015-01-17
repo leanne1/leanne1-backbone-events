@@ -35,7 +35,8 @@ var Event = new mongoose.Schema({
 var EventModel = mongoose.model( 'Event', Event );
 
 //Get a list of all events
-app.get( '/api/v1/userevents/events', function( request, response ) {
+//TODO: Get the userId from request.params
+app.get( '/api/v1/123456789/events', function( request, response ) {
     return EventModel.find( function( err, evts ) {
         if( !err ) {
             return response.send( evts );
@@ -46,7 +47,8 @@ app.get( '/api/v1/userevents/events', function( request, response ) {
 });
 
 //Create a new event
-app.post( '/api/v1/userevents/events', function( request, response ) {
+//TODO: Get the userId from request.params
+app.post( '/api/v1/123456789/events', function( request, response ) {
     var evt = new EventModel({
         name: String,
         startDate: Number,
@@ -67,7 +69,8 @@ app.post( '/api/v1/userevents/events', function( request, response ) {
 });
 
 //Get a single event by id
-app.get( '/api/v1/userevents/events/:id', function( request, response ) {
+//TODO: Get the userId from request.params
+app.get( '/api/v1/123456789/events/:id', function( request, response ) {
     return EventModel.findById( request.params.id, function( err, evt ) {
         if( !err ) {
             return response.send( evt );

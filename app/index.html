@@ -97,10 +97,13 @@
                             <label for="event-description" class="txt-label">Event description</label>
                             <textarea data-event-config="description" id="event-description"></textarea>
                         </div>
+                        <input type="hidden" data-event-config="userId" value="123456789" />
                         <div class="form form-section">    
                             <input type="submit" value="Create event" class="btn btn-primary" data-event-config="submit"/>
                         </div>
-                        <span class="text-footnote">* indicates a required field</span>
+                        <span class="text-footnote">
+                            * indicates a required field
+                        </span>
                     </fieldset>       
                 </form>
             </section>
@@ -120,31 +123,5 @@
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
-        <script id="event-card-template" type="text/x-handlebars-template">
-            <li class="card card-event" data-event-id="{{id}}">
-                
-                <div class="event-date">
-                    // TODO: Is this correct use of time el?
-                    <time>
-                        <span class="event-month">
-                            {{prettyStartMonth}}
-                        </span>
-                        <span class="event-date">
-                            {{prettyStartDate}}
-                        </span>
-                        <span class="event-year">
-                            {{prettyStartYear}}
-                        </span>
-                    </time>
-                </div>
-                <div class="event-details">
-                    <h3><a>{{name}}</a></h3>
-                    <button data-event="promote" data-event-id="{{id}}">
-                    Promote<span class="hide-visually"> this event</span>
-                    </button>
-                </div>
-            </li>
-
-        </script>   
-</body>
+    </body>
 </html>
