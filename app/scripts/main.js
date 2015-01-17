@@ -15,4 +15,5 @@ require([
     'backbone'
 ], function (Backbone) {
     Backbone.history.start();
+    console.log('JS running!');
 });

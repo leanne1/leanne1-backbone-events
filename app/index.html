@@ -3,10 +3,9 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>JustGiving</title>
+        <title>Just Giving || Macmillan Cancer Support || Add a fundraising event</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
         <!-- build:css(.tmp) styles/main.css -->
         <link rel="stylesheet" href="styles/main.css">
         <!-- endbuild -->
@@ -15,37 +14,135 @@
         <!-- endbuild -->
     </head>
     <body>
-        <!--[if lt IE 10]>
-            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <section>
+            <header role="header">
+               <img src="" class="logo-primary" alt="Just Giving logo" />
+                <nav role="nav" class="nav nav-main">
+                    <h1>Macmillan Cancer Support Acount</h1>
+                    <ul>
+                        <li class="tab nav-tab">
+                            <a href="">Home</a></li>
+                        <li class="tab nav-tab">
+                            <a href="">Reports</a>
+                        </li>
+                        <li class="tab nav-tab">
+                            <a href="">Fundraising tools</a>
+                        </li>
+                        <li class="tab nav-tab">
+                            <a href="">Branding &amp; Settings</a>
+                        </li>
+                    </ul>                
+                </nav>
+            </header>
+        </section>
+        <main role="main">
+            <nav role="nav" class="nav nav-breadcrumb">
+                <ul>
+                    <li class="crumb">
+                        <a href="">Fundraising tools</a></li>
+                    <li class="crumb">
+                        <a href="">Add and promote events</a>
+                    </li>
+                    <li class="crumb">
+                        <a href="">Add a fundraising event</a>
+                    </li>
+                </ul>                
+            </nav>
+            <section class="box box-pullout" data-event="add">
+                <h2>Add a fundraising event</h2>
+                <form data-event="configure">
+                    <fieldset>
+                        <legend>About the event</legend>
+                        <div class="form form-section">
+                            <label for="event-name" class="txt-label">Name of Event*</label>
+                            <input type="text" data-event-config="name" id="event-name" />
+                        </div>
 
+                        <div class="form form-section">
+                            <!-- TODO: is there a date type?-->
+                            <label for="event-start" class="txt-label">Start date*</label>
+                            <input type="text" data-event-config="start" id="event-start" />
+                        
+                            <label for="event-end" class="txt-label">End date*</label>
+                            <input type="text" data-event-config="end" id="event-end" />
 
-        <div class="hero-unit">
-          <h1>'Allo, 'Allo!</h1>
-          <p>You now have</p>
-          <ul>
-            <li>HTML5 Boilerplate</li>
-            <li>jQuery</li>
-            <li>Backbone.js</li>
-            <li>Underscore.js</li>
-            <li>Modernizr</li>
-            <li>RequireJS</li>
-          </ul>
-        </div>
+                            <label for="event-addEnd" class="txt-label">Add an end date (if different)</label>
+                            <input type="checkbox" data-event-config="addEnd" id="event-addEnd" />   
+                        </div>
 
+                        <div class="form form-section">    
+                            <label for="event-start-location" class="txt-label">Village, town or city where event begins</label>
+                            <input type="text" data-event-config="startLocation" id="event-start-location" />
+                        </div>
 
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
+                        <div class="form form-section">
+                            
+                            <!-- TODO: fix radios to work -->
+                            <span class="txt-label">Is it open to people from other charities?
+                            <button class="icn-info">
+                                <span class="hide-visually" aria-hidden="true">
+                                    Get more information about open events
+                                </span>    
+                            </button>    
+                            </label>
+                            
+                            <label for="event-is-open" class="txt-label">Yes - anyone can take part</label>
+                            <input type="radio" data-event-config="isOpen" id="event-is-open" name="event-open" /> 
+                            
+                            <label for="event-is-closed" class="txt-label">No - it's just for people raising money for my charity</label>
+                            <input type="radio" data-event-config="event-is-closed" name="event-open" />   
+                        </div>
 
+                        <div class="form form-section">    
+                            <label for="event-description" class="txt-label">Event description</label>
+                            <textarea data-event-config="description" id="event-description"></textarea>
+                        </div>
+                        <div class="form form-section">    
+                            <input type="submit" value="Create event" class="btn btn-primary" data-event-config="submit"/>
+                        </div>
+                        <span class="text-footnote">* indicates a required field</span>
+                    </fieldset>       
+                </form>
+            </section>
+            <section class="box box-pullout" data-event="show">
+                <img src="" class="charity-logo" alt="We are Macmillan cancer support - logo" />
+                <div>
+                    <h2>Your events</h2>
+                    <ul class="list list-stacked">
+                        <!-- Backbone dynamic content -->
+                    </ul>    
+                </div>
+            </section>
+        </main>
+        <footer role="footer">
+            <img src="" class="logo-secondary" alt="Just Giving logo" />
+        </footer>
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
+        <script id="event-card-template" type="text/x-handlebars-template">
+            <li class="card card-event" data-event-id="{{id}}">
+                <div class="event-date">
+                    // TODO: Is this correct use of time el?
+                    <time>
+                        <span class="event-month">
+                            {{eventMonth}}
+                        </span>
+                        <span class="event-date">
+                            {{eventDate}}
+                        </span>
+                        <span class="event-year">
+                            {{eventYear}}
+                        </span>
+                    </time>
+                </div>
+                <div class="event-details">
+                    <h3><a>{{eventName}}</a></h3>
+                    <button data-event="promote" data-event-id="{{id}}">
+                    Promote<span class="hide-visually"> this event</span>
+                    </button>
+                </div>
+            </li>
+        </script>   
 </body>
 </html>
