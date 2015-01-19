@@ -14,7 +14,7 @@ app.use( express.static( path.join( application_root, '../app') ) );
 //app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 //Routes
-app.get( '/api/v1/userevents/123456789/events', function(request, response){
+app.get( '/api/v1/userevents/123456789/', function(request, response){
     response.send( 'Events API is now running' );    
 });
 
@@ -23,7 +23,7 @@ mongoose.connect( 'mongodb://localhost/events_database' );
 
 //Schemas
 var Event = new mongoose.Schema({
-    idAttribute: String,
+    userId: String,
     eventName: String,
     startDate: String,
     endDate: String,
@@ -51,7 +51,7 @@ app.get( '/api/v1/userevents/123456789/events', function( request, response ) {
 //TODO: Get the userId from request.params
 app.post( '/api/v1/userevents/123456789/events', function( request, response ) {
     var evt = new EventModel({
-        idAttribute: String,
+        userId: String,
         eventName: String,
         startDate: String,
         endDate: String,

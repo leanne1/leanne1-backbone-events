@@ -10,7 +10,7 @@ define(['underscore', 'Backbone'], function(_, Backbone){
 		},
 
 		initialize: function(){
-			this.extendModel();
+			//this.extendModel();
 		},
 		
 		//+++++++++++++++++++++++++++++++++++++++++
@@ -22,6 +22,7 @@ define(['underscore', 'Backbone'], function(_, Backbone){
 			this.set('prettyStartDate', this.getPrettyDate(this.get('startDate')));
 			this.set('prettyStartMonth', this.getPrettyMonth(this.get('startDate')));
 			this.set('prettyStartYear', this.getPrettyYear(this.get('startDate')));
+			this.set('eventId', this.get('userId') + '_' + this.cid);
 		},
 
 		//+++++++++++++++++++++++++++++++++++++++++

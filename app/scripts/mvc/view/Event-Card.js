@@ -6,7 +6,7 @@ define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone,
 		className: 'card card-event',
 
 		eventCardTemplate: Handlebars.compile($('#eventcard-template').html()),
-		
+
 		events: {
 			'' : ''
 		},
@@ -30,12 +30,10 @@ define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone,
 				prettyStartMonth: this.model.escape('prettyStartMonth'),
 				prettyStartDate: this.model.escape('prettyStartDate'),
 				prettyStartYear: this.model.escape('prettyStartYear'),
+				eventId: this.model.escape('eventId'),
 				eventName: this.model.escape('eventName')
 			}));	
 			
-			//TODO: this may throw an error if 'id' is not defined
-			//or doing this too early???
-			this.$el.attr('data-event-id', this.model.escape('id'));
 			return this;
 		}
 	});

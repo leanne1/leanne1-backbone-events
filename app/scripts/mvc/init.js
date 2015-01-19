@@ -34,26 +34,23 @@ define([
 				userId: userId
 			});
 			//FOR DEV
-			events.create({
-				eventName: 'Charity event',
-        		startDate: new Date(),
-        		endDate: new Date(),
-        		startLocation: 'Egypt',
-        		open: true,
-        		description: 'Scuba dive for Charity!'
-			});
-			events.create({
-				eventName: 'Fun run',
-        		startDate: new Date(),
-        		endDate: new Date(),
-        		startLocation: 'London',
-        		open: false,
-        		description: 'Run a long way!'
-			});
+			// events.create({
+			// 	userId: '123456789',
+			// 	eventName: 'Charity event',
+   //      		startLocation: 'Egypt',
+   //      		open: true,
+   //      		description: 'Scuba dive for Charity!'
+			// });
+			// events.create({
+			// 	userId: '123456789',
+			// 	eventName: 'Fun run',
+   //      		startLocation: 'London',
+   //      		open: false,
+   //      		description: 'Run a long way!'
+			// });
 
 			events.fetch({ reset: true });
-			console.log('events after create a fetch:', events);
-			
+
 			initFormView();
 			initEventsBoard(events);
 		}

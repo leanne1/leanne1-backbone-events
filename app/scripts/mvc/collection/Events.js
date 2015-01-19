@@ -25,7 +25,7 @@ define([
 			var self = this;
 			this.poll = window.setInterval(function(){
 				self.fetch();
-			},30000);
+			}, 30000);
 		}
 	});
 	
