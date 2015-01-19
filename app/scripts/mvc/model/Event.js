@@ -9,21 +9,19 @@ define(['underscore', 'Backbone'], function(_, Backbone){
 			description: undefined
 		},
 
-		idAttribute: '_id',
-		
 		initialize: function(){
-			//Add human-readable date strings to model for use in view
 			this.extendModel();
 		},
 		
 		//+++++++++++++++++++++++++++++++++++++++++
 		//+ Extend model
 		//+++++++++++++++++++++++++++++++++++++++++
+		
+		//Add human-readable date strings to model for use in view
 		extendModel: function() {
-			this.prettyStartDate = this.getPrettyDate(this.get('startDate'));
-			this.prettyStartMonth = this.getPrettyMonth(this.get('startDate'));
-			this.prettyStartYear = this.getPrettyYear(this.get('startDate'));
-
+			this.set('prettyStartDate', this.getPrettyDate(this.get('startDate')));
+			this.set('prettyStartMonth', this.getPrettyMonth(this.get('startDate')));
+			this.set('prettyStartYear', this.getPrettyYear(this.get('startDate')));
 		},
 
 		//+++++++++++++++++++++++++++++++++++++++++

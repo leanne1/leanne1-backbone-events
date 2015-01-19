@@ -1,50 +1,44 @@
-define(['underscore', 'Backbone', 'jQuery'], function(_, Backbone, $){
+define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone, $, Handlebars){
 	var EventCard = Backbone.View.extend({
 		
-	tagName: '',
+		tagName: 'li',
 
-	className: '',
+		className: 'card card-event',
 
-	id: '',
-	
-	bookingTemplate: Handlebars.compile($("#bookingview-template").html()),
-	
-	events: {
-		'' : ''
-	},
-	
-	initialize: function(){
+		eventCardTemplate: Handlebars.compile($('#eventcard-template').html()),
 		
-		this.render();
+		events: {
+			'' : ''
+		},
+		
+		initialize: function(){
+			console.log('this.model in Event Card initialize', this.model);
+			//+++++++++++++++++++++++++++++++++++++++++
+			//+ API event listeners
+			//+++++++++++++++++++++++++++++++++++++++++
+			
+			//this.listenTo(this.model, 'change:status', this.showNotification);
 
+		},
+		
 		//+++++++++++++++++++++++++++++++++++++++++
-		//+ API event listeners
+		//+ Render
 		//+++++++++++++++++++++++++++++++++++++++++
-		
-		
-		this.listenTo(this.model, 'change:status', this.showNotification);
 
-	},
-	
-	//+++++++++++++++++++++++++++++++++++++++++
-	//+ Render
-	//+++++++++++++++++++++++++++++++++++++++++
+		render: function(){
+			this.$el.html(this.eventCardTemplate({
+				prettyStartMonth: this.model.escape('prettyStartMonth'),
+				prettyStartDate: this.model.escape('prettyStartDate'),
+				prettyStartYear: this.model.escape('prettyStartYear'),
+				eventName: this.model.escape('eventName')
+			}));	
+			
+			//TODO: this may throw an error if 'id' is not defined
+			//or doing this too early???
+			this.$el.attr('data-event-id', this.model.escape('id'));
+			return this;
+		}
+	});
 
-	render: function(){
-		var bookingView = this.$el.html(this.bookingTemplate({
-			context: this.context,
-			autoConfirm: this.autoConfirm, 
-			adId: this.adId,
-			prettyDate: this.model.escape('prettyDate'),
-			prettyTime: this.model.escape('prettyTime'),
-			msgRequired: this.msgRequired,
-			msgSubject: this.msgSubject,
-			name: this.$('[id^="name-"]').val(),
-			email: this.$('[id^="email-"]').val()
-		}));	
-
-		$('body').prepend(bookingView);	
-	}
-	
 	return EventCard;
 });

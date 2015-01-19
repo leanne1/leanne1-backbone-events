@@ -14,7 +14,7 @@ app.use( express.static( path.join( application_root, '../app') ) );
 //app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
 
 //Routes
-app.get( '/api/v1/userevents', function(request, response){
+app.get( '/api/v1/userevents/123456789/events', function(request, response){
     response.send( 'Events API is now running' );    
 });
 
@@ -23,9 +23,10 @@ mongoose.connect( 'mongodb://localhost/events_database' );
 
 //Schemas
 var Event = new mongoose.Schema({
-    name: String,
-    startDate: Number,
-    endDate: Number,
+    idAttribute: String,
+    eventName: String,
+    startDate: String,
+    endDate: String,
     startLocation: String,
     open: Boolean,
     description: String
@@ -36,7 +37,7 @@ var EventModel = mongoose.model( 'Event', Event );
 
 //Get a list of all events
 //TODO: Get the userId from request.params
-app.get( '/api/v1/123456789/events', function( request, response ) {
+app.get( '/api/v1/userevents/123456789/events', function( request, response ) {
     return EventModel.find( function( err, evts ) {
         if( !err ) {
             return response.send( evts );
@@ -48,11 +49,12 @@ app.get( '/api/v1/123456789/events', function( request, response ) {
 
 //Create a new event
 //TODO: Get the userId from request.params
-app.post( '/api/v1/123456789/events', function( request, response ) {
+app.post( '/api/v1/userevents/123456789/events', function( request, response ) {
     var evt = new EventModel({
-        name: String,
-        startDate: Number,
-        endDate: Number,
+        idAttribute: String,
+        eventName: String,
+        startDate: String,
+        endDate: String,
         startLocation: String,
         open: Boolean,
         description: String
@@ -70,7 +72,7 @@ app.post( '/api/v1/123456789/events', function( request, response ) {
 
 //Get a single event by id
 //TODO: Get the userId from request.params
-app.get( '/api/v1/123456789/events/:id', function( request, response ) {
+app.get( '/api/v1/userevents/123456789/events/:id', function( request, response ) {
     return EventModel.findById( request.params.id, function( err, evt ) {
         if( !err ) {
             return response.send( evt );

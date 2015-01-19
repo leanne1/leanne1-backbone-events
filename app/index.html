@@ -107,11 +107,11 @@
                     </fieldset>       
                 </form>
             </section>
-            <section class="box box-pullout" data-event="show">
+            <section class="box box-pullout">
                 <img src="" class="charity-logo" alt="We are Macmillan cancer support - logo" />
                 <div>
                     <h2>Your events</h2>
-                    <ul class="list list-stacked">
+                    <ul class="list list-stacked" data-event="show">
                         <!-- Backbone dynamic content -->
                     </ul>    
                 </div>
@@ -120,6 +120,30 @@
         <footer role="footer">
             <img src="" class="logo-secondary" alt="Just Giving logo" />
         </footer>
+
+        <!-- TODO: get the requirejs text plugin so this can be pulled in from an external file-->
+        <script id="eventcard-template" type="text/x-handlebars-template">
+            <div class="event-date">
+                <!--TODO: Is this correct use of time el?-->
+                <time>
+                    <span class="event-month">
+                        {{prettyStartMonth}}
+                    </span>
+                    <span class="event-date">
+                        {{prettyStartDate}}
+                    </span>
+                    <span class="event-year">
+                        {{prettyStartYear}}
+                    </span>
+                </time>
+            </div>
+            <div class="event-details">
+                <h3><a href="#">{{eventName}}</a></h3>
+                <button data-event="promote" data-event-id="{{eventId}}">
+                    Promote<span class="hide-visually"> this event</span>
+                </button>
+            </div>
+        </script>
         <!-- build:js scripts/main.js -->
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>
         <!-- endbuild -->
