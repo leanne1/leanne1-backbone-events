@@ -2,9 +2,9 @@
   "name": "justgiving",
   "version": "0.0.0",
   "dependencies": {
-    "express": "^4.11.0",
-    "mongoose": "^3.8.21",
-    "path": "^0.11.14"
+    "express": "~3.1.0",
+    "path": "~0.4.9",
+    "mongoose": "~3.5.5"
   },
   "devDependencies": {
     "apache-server-configs": "^2.8.0",

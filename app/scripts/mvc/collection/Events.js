@@ -1,15 +1,17 @@
 define([
 	'underscore', 
 	'Backbone',
-	'Event'
-	], function(_, Backbone, Event){
-	var Events = Backbone.Collection.extend({
+	'Evt'
+	], function(_, Backbone, Evt){
+	var Evts = Backbone.Collection.extend({
 		
-		model: Event, 
+		url: '/api/v1/userevents/123456789/events',
 
-		initialize:function(collection, options){
+		model: Evt, 
+
+		initialize:function(){
 			//Set url to be events collection of the charity, based on a unique userId
-			this.url = '/api/v1/userevents/' + options.userId + '/events';
+			//this.url = '/api/v1/userevents/' + options.userId + '/events';
 			
 			//Regularly poll remote server to check for new events added by another user
 			this.pollRemote();
@@ -29,5 +31,5 @@ define([
 		}
 	});
 	
-	return Events;
+	return Evts;
 });

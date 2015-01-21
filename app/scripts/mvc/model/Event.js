@@ -1,5 +1,5 @@
 define(['underscore', 'Backbone'], function(_, Backbone){
-	var Event = Backbone.Model.extend({
+	var Evt = Backbone.Model.extend({
 		// TODO: do we need a defaults?
 		//All the values we need should be given in the form...?
 		//or for handling optional values?
@@ -58,5 +58,5 @@ define(['underscore', 'Backbone'], function(_, Backbone){
 		
 	});
 	
-	return Event;
+	return Evt;
 });

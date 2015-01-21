@@ -11,8 +11,11 @@ define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone,
 			'' : ''
 		},
 		
-		initialize: function(){
+		initialize: function(options){
+			this.model = options.model;
 			console.log('this.model in Event Card initialize', this.model);
+			console.log('this.model in Event Card initialize', this.model.__proto__);
+
 			//+++++++++++++++++++++++++++++++++++++++++
 			//+ API event listeners
 			//+++++++++++++++++++++++++++++++++++++++++

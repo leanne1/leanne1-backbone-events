@@ -9,10 +9,10 @@ require.config({
         jquery: '../bower_components/jquery/dist/jquery',
         Backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
-        Event: '../scripts/mvc/model/Event',
+        Evt: '../scripts/mvc/model/Event',
         EventCard: '../scripts/mvc/view/Event-Card',
         EventForm: '../scripts/mvc/view/Event-Form',
-        Events: '../scripts/mvc/collection/Events',
+        Evts: '../scripts/mvc/collection/Events',
         tmplEventCard: '../scripts/mvc/template/event-card',
         eventBuilder: '../scripts/mvc/init'
     }

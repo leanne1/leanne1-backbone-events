@@ -1,10 +1,10 @@
 define([
 	'jquery',
-	'Event',
-	'Events',
+	'Evt',
+	'Evts',
 	'EventForm', 
 	'EventCard'
-	], function($, Event, Events, EventForm, EventCard) {
+	], function($, Evt, Evts, EventForm, EventCard) {
 	
 	//TODO: This is our eventBuilder module. This script should contain everything
 	//we need to build the eventBuilder, including templates, CSS and JS
@@ -30,29 +30,10 @@ define([
 		
 		//Initialise events collection
 		function initCollection () {
-			var events = new Events([], {
-				userId: userId
-			});
-			//FOR DEV
-			// events.create({
-			// 	userId: '123456789',
-			// 	eventName: 'Charity event',
-   //      		startLocation: 'Egypt',
-   //      		open: true,
-   //      		description: 'Scuba dive for Charity!'
-			// });
-			// events.create({
-			// 	userId: '123456789',
-			// 	eventName: 'Fun run',
-   //      		startLocation: 'London',
-   //      		open: false,
-   //      		description: 'Run a long way!'
-			// });
-
-			events.fetch({ reset: true });
-
+			var evts = new Evts();
+		
 			initFormView();
-			initEventsBoard(events);
+			initEventsBoard(evts);
 		}
 
 		//Initialise event form view
@@ -63,20 +44,19 @@ define([
 			});
 		}
 
+		
 		//Initialise events board with existing evens
-		function initEventsBoard (events) {
+		function initEventsBoard (evts) {
 			var $cardsContainer = $('[data-event="show"]'), 
-				eventList = events,
-				eventsCount = eventList.length,
+				eventsCount = evts.length,
 				$notice
 				;
-			
 			if (!eventsCount) {
 				$notice = $('<li />')
 							.text('You have no events yet. When events are added they will show up here.')
 							.appendTo($cardsContainer);
 			}  else {
-				eventList.forEach(function(model){
+				_.each(evts, function(model){
 					var $eventCard = new EventCard({ model: model }).render().$el;
 						$eventCard.appendTo($cardsContainer);
 				});
