@@ -55,16 +55,16 @@
                         <legend>About the event</legend>
                         <div class="form form-section">
                             <label for="event-name" class="txt-label">Name of Event*</label>
-                            <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" required />
+                            <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" required data-error="Please include an event name" />
                         </div>
 
                         <div class="form form-section">
                             <label for="event-start" class="txt-label">Start date*</label>
-                            <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" required />
+                            <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" required data-error="Please include an event start date" />
 
                             <!-- TODO:this will have to be cloned from start date if the checkbox not checked -->
                             <label for="event-end" class="txt-label">End date*</label>
-                            <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end" required />
+                            <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end" required data-error="Please include an event end date, or uncheck the 'add end date' checkbox" />
 
                             <label for="event-addEnd" class="txt-label">Add an end date (if different)</label>
                             <input type="checkbox" data-event-config="addEnd" id="event-addEnd" />   

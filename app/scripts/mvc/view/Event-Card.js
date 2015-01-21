@@ -13,6 +13,7 @@ define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone,
 		
 		initialize: function(options){
 			this.model = options.model;
+			console.log('EVENT CARD VIEW INIT');
 		},
 		
 		//+++++++++++++++++++++++++++++++++++++++++

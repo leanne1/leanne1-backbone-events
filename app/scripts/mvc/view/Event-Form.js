@@ -1,22 +1,17 @@
 define([
 	'underscore', 
 	'Backbone', 
-	'jquery'], function(_, Backbone, $){
+	'jquery',
+	'EventCard'], function(_, Backbone, $, EventCard){
 	
 	var EventForm = Backbone.View.extend({
+		
 		events: {
 			'click [data-event-config="submit"]' : 'createEvent'
 		},
 
 		initialize: function(){
 			this.$controls = $('[data-event-property]');
-
-			//LISTEN FOR click on submit
-			//loop over form and for each field:
-			//	1. validate / show error message
-			//	2. get data
-			//use date to build up a new model
-			// pass the new model to an event card view and initialise it
 		},
 
 		createEvent: function(e){
@@ -49,12 +44,18 @@ define([
 			return isValid;
 		},
 
-		showErrorMEssage: function(){
-			console.log('form not valid message');
+		showErrorMEssage: function($control){
+			var msg = $control.data('error'),
+				msgContainer = $('<span class="error-message" data-error-message />');
+				msgContainer.text(msg).insertAfter($control);
 		},
 
-		createEventCard: function(){
-			console.log('All clear - ready to create new event card!');
+		createEventCard: function(eventData){
+			$('[data-error-message]').remove();
+			var newEventCard = new EventCard({
+				model: eventData
+			});
+			$('[data-events-board]').append(newEventCard.render().$el);
 		}	
 	});
 	
