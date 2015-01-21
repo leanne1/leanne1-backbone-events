@@ -50,21 +50,21 @@
             </nav>
             <section class="box box-pullout" data-event="add">
                 <h2>Add a fundraising event</h2>
-                <form data-event="configure">
+                <form data-event="configure" novalidate>
                     <fieldset>
                         <legend>About the event</legend>
                         <div class="form form-section">
                             <label for="event-name" class="txt-label">Name of Event*</label>
-                            <input type="text" data-event-config="name" id="event-name" />
+                            <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" required />
                         </div>
 
                         <div class="form form-section">
-                            <!-- TODO: is there a date type?-->
                             <label for="event-start" class="txt-label">Start date*</label>
-                            <input type="text" data-event-config="start" id="event-start" />
-                        
+                            <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" required />
+
+                            <!-- TODO:this will have to be cloned from start date if the checkbox not checked -->
                             <label for="event-end" class="txt-label">End date*</label>
-                            <input type="text" data-event-config="end" id="event-end" />
+                            <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end" required />
 
                             <label for="event-addEnd" class="txt-label">Add an end date (if different)</label>
                             <input type="checkbox" data-event-config="addEnd" id="event-addEnd" />   
@@ -72,11 +72,10 @@
 
                         <div class="form form-section">    
                             <label for="event-start-location" class="txt-label">Village, town or city where event begins</label>
-                            <input type="text" data-event-config="startLocation" id="event-start-location" />
+                            <input type="text" data-event-config="startLocation" data-event-property="startLocation" id="event-start-location" />
                         </div>
 
                         <div class="form form-section">
-                            
                             <!-- TODO: fix radios to work -->
                             <span class="txt-label">Is it open to people from other charities?
                             <button class="icn-info">
@@ -87,19 +86,21 @@
                             </label>
                             
                             <label for="event-is-open" class="txt-label">Yes - anyone can take part</label>
-                            <input type="radio" data-event-config="isOpen" id="event-is-open" name="event-open" /> 
+                            <input type="radio" data-event-config="isOpen" data-event-property="open" id="event-is-open" name="event-open" /> 
                             
                             <label for="event-is-closed" class="txt-label">No - it's just for people raising money for my charity</label>
-                            <input type="radio" data-event-config="event-is-closed" name="event-open" />   
+                            <input type="radio" data-event-config="isClosed" name="event-open" />   
                         </div>
 
                         <div class="form form-section">    
                             <label for="event-description" class="txt-label">Event description</label>
-                            <textarea data-event-config="description" id="event-description"></textarea>
+                            <textarea data-event-config="description" data-event-property="description" id="event-description"></textarea>
                         </div>
-                        <input type="hidden" data-event-config="userId" value="123456789" />
+                        <input type="hidden" data-event-config="userId" data-event-property="userId" value="123456789" />
                         <div class="form form-section">    
-                            <input type="submit" value="Create event" class="btn btn-primary" data-event-config="submit"/>
+                            <button class="btn btn-primary" data-event-config="submit">
+                                Create event
+                            </button>
                         </div>
                         <span class="text-footnote">
                             * indicates a required field
