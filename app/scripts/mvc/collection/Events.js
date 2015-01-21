@@ -5,16 +5,15 @@ define([
 	], function(_, Backbone, Evt){
 	var Evts = Backbone.Collection.extend({
 		
-		url: '/api/v1/userevents/123456789/events',
-
 		model: Evt, 
 
-		initialize:function(){
+		initialize:function(options){
 			//Set url to be events collection of the charity, based on a unique userId
-			//this.url = '/api/v1/userevents/' + options.userId + '/events';
+			this.url = '/api/v1/userevents/' + options.userId + '/events';
 			
 			//Regularly poll remote server to check for new events added by another user
 			this.pollRemote();
+		
 		},
 
 		//++++++++++++++++++++++++++++++++++

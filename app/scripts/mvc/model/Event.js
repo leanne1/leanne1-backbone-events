@@ -1,16 +1,14 @@
-define(['underscore', 'Backbone'], function(_, Backbone){
+define([
+	'underscore', 
+	'Backbone'
+	], function(_, Backbone){
 	var Evt = Backbone.Model.extend({
-		// TODO: do we need a defaults?
-		//All the values we need should be given in the form...?
-		//or for handling optional values?
-		defaults: {
-			startLocation: undefined,
-			open: undefined,
-			description: undefined
-		},
-
+		
 		initialize: function(){
-			//this.extendModel();
+			this.extendModel();
+			
+			//FOR DEV - delete all events in db
+			//this.destroy();
 		},
 		
 		//+++++++++++++++++++++++++++++++++++++++++
@@ -31,7 +29,7 @@ define(['underscore', 'Backbone'], function(_, Backbone){
 		// From the provided start date, find the date, month and year
 		// and return them as human-readable strings to be added to the model
 		getPrettyDate: function(date){
-			return date.getDate();
+			return new Date(date).getDate();
 		},
 
 		getPrettyMonth: function(date){
@@ -49,11 +47,11 @@ define(['underscore', 'Backbone'], function(_, Backbone){
 				'Nov',
 				'Dec'
 			];
-			return months[date.getMonth()];
+			return months[new Date(date).getMonth()];
 		},
 
 		getPrettyYear: function(date){
-			return date.getFullYear();
+			return new Date(date).getFullYear();
 		}
 		
 	});

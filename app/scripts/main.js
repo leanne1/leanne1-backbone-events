@@ -10,6 +10,7 @@ require.config({
         Backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
         Evt: '../scripts/mvc/model/Event',
+        EventBoard: '../scripts/mvc/view/Event-Board',
         EventCard: '../scripts/mvc/view/Event-Card',
         EventForm: '../scripts/mvc/view/Event-Form',
         Evts: '../scripts/mvc/collection/Events',

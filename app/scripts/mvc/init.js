@@ -1,10 +1,12 @@
+var evts;
 define([
 	'jquery',
 	'Evt',
 	'Evts',
 	'EventForm', 
-	'EventCard'
-	], function($, Evt, Evts, EventForm, EventCard) {
+	'EventCard', 
+	'EventBoard'
+	], function($, Evt, Evts, EventForm, EventCard, EventBoard) {
 	
 	//TODO: This is our eventBuilder module. This script should contain everything
 	//we need to build the eventBuilder, including templates, CSS and JS
@@ -30,8 +32,30 @@ define([
 		
 		//Initialise events collection
 		function initCollection () {
-			var evts = new Evts();
-		
+			evts = new Evts({
+				userId: userId
+			});
+			
+// 			evts.create({
+// 	userId: '123456789',
+// 	eventName: 'scuba-thon',
+// 	startDate: new Date().getTime(),
+// 	endDate: new Date().getTime(),
+// 	startLocation: 'Egypt',
+// 	open: true,
+// 	description: 'lots of diving'
+// });
+
+// evts.create({
+// 	userId: '123456789',
+// 	eventName: 'marathon',
+// 	startDate: new Date().getTime(),
+// 	endDate: new Date().getTime(),
+// 	startLocation: 'Surrey',
+// 	open: true,
+// 	description: 'run a long way!'
+// });
+
 			initFormView();
 			initEventsBoard(evts);
 		}
@@ -44,23 +68,13 @@ define([
 			});
 		}
 
-		
 		//Initialise events board with existing evens
 		function initEventsBoard (evts) {
-			var $cardsContainer = $('[data-event="show"]'), 
-				eventsCount = evts.length,
-				$notice
-				;
-			if (!eventsCount) {
-				$notice = $('<li />')
-							.text('You have no events yet. When events are added they will show up here.')
-							.appendTo($cardsContainer);
-			}  else {
-				_.each(evts, function(model){
-					var $eventCard = new EventCard({ model: model }).render().$el;
-						$eventCard.appendTo($cardsContainer);
-				});
-			}
+			var $el = $('[data-events-board]');
+			new EventBoard({
+				el: $el,
+				collection: evts
+			});
 		}
 
 		initCollection();

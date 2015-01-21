@@ -26,8 +26,8 @@ mongoose.connect( 'mongodb://localhost/events_database' );
 var Evt = new mongoose.Schema({
     userId: String,
     eventName: String,
-    startDate: String,
-    endDate: String,
+    startDate: Number,
+    endDate: Number,
     startLocation: String,
     open: Boolean,
     description: String
@@ -81,6 +81,22 @@ app.get( '/api/v1/userevents/123456789/events/:id', function( request, response 
         } else {
             return console.log( err );
         }
+    });
+});
+
+
+//Delete an event
+app.delete( '/api/v1/userevents/123456789/events/:id', function( request, response ) {
+    console.log( 'Deleting event with id: ' + request.params.id );
+    return EventModel.findById( request.params.id, function( err, evt ) {
+        return evt.remove( function( err ) {
+            if( !err ) {
+                console.log( 'Event removed' );
+                return response.send( '' );
+            } else {
+                console.log( err );
+            }
+        });
     });
 });
 
