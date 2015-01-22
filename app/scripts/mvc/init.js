@@ -1,4 +1,5 @@
-var evts;
+'use strict';
+
 define([
 	'jquery',
 	'Evt',
@@ -14,47 +15,23 @@ define([
 	//so that ONLY if the eventBuilder is used on the page are these assets
 	//ever called into the site
 
-	//TODO: This will execute on page load via main.js
-	//So we need to bootstrap the app:
-	//Get all the collection and render them into the card view
-	//the main form view has no BB in it [yet ... rollover?]
-
-
 	//Creating an exposable api object 
 	//for easy-to-read declarative initialisation
 	var api = {
 		init: init
 	}
 	
-	//TODO: This function eventually bootstraps the whole app
+	//This is the app bootstrap function; it initialises everything we 
+	//need to start the app
 	function init () {
+		//Get the unique [charity] userId so we know which url to for our server-side API
 		var userId = $('[data-event-config="userId"]').val();
 		
 		//Initialise events collection
 		function initCollection () {
-			evts = new Evts({
+			var evts = new Evts({
 				userId: userId
 			});
-			
-// 			evts.create({
-// 	userId: '123456789',
-// 	eventName: 'scuba-thon',
-// 	startDate: new Date().getTime(),
-// 	endDate: new Date().getTime(),
-// 	startLocation: 'Egypt',
-// 	open: true,
-// 	description: 'lots of diving'
-// });
-
-// evts.create({
-// 	userId: '123456789',
-// 	eventName: 'marathon',
-// 	startDate: new Date().getTime(),
-// 	endDate: new Date().getTime(),
-// 	startLocation: 'Surrey',
-// 	open: true,
-// 	description: 'run a long way!'
-// });
 
 			initFormView(evts);
 			initEventsBoard(evts);
@@ -69,7 +46,7 @@ define([
 			});
 		}
 
-		//Initialise events board with existing evens
+		//Initialise events board with persisted event
 		function initEventsBoard (evts) {
 			var $el = $('[data-events-board]');
 			new EventBoard({

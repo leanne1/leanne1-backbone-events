@@ -30,7 +30,8 @@ var Evt = new mongoose.Schema({
     endDate: String,
     startLocation: String,
     open: Boolean,
-    description: String
+    description: String,
+    timeStamp: Number
 });
 
 //Models
@@ -59,7 +60,8 @@ app.post( '/api/v1/userevents/123456789/events', function( request, response ) {
         endDate: request.body.endDate,
         startLocation: request.body.startLocation,
         open: request.body.open,
-        description: request.body.description
+        description: request.body.description,
+        timeStamp: request.body.timeStamp
     });
     
     return evt.save( function( err ) {

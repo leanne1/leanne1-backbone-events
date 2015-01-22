@@ -11,12 +11,20 @@ define([
 	var EventForm = Backbone.View.extend({
 		
 		events: {
-			'click [data-event-config="submit"]' : 'createEvent'
+			'click [data-event-config="submit"]' : 'createEvent',
+			'click [data-event-config="addEnd"]' : 'toggleEndDateControl',
+			'blur [data-event-config="startDate"]' : 'populateEndDate'
 		},
 
 		initialize: function(options){
 			this.collection = options.collection;
+			
+			//Cache DOM elements
 			this.$controls = $('[data-event-property]');
+			this.$startDateControl = $('[data-event-config="startDate"]');
+			this.$endDateControl = $('[data-event-config="endDate"]');
+			this.$endDateToggle = $('[data-event-config="addEnd"]');
+
 		},
 
 		createEvent: function(e){
@@ -84,7 +92,7 @@ define([
 			if ($control.data('event-property') === 'startDate') {
 				var startDate = new Date ($('[data-event-property="startDate"]').val()).getTime();	
 				var today = new Date().setUTCHours(0,0,0,0);
-				return today < startDate;
+				return today <= startDate;
 			}
 			return true;
 		},
@@ -104,20 +112,35 @@ define([
 			msgContainer.text(msg).insertAfter($control);
 		},
 
-		createEventCard: function(eventData){
+		toggleEndDateControl: function(){
+			var isChecked = this.$endDateToggle.is(':checked');
 			
-			//TODO: plug in jquery date picker and process dates sent from form as necessary
-			//for to UNIX time stamp
-			console.log('createEvent called');
-			console.log('eventData', eventData);
+			//[Dis]able the end date field when add end date toggle is [un]checked
+			this.$endDateControl.attr('disabled', !isChecked);
+			
+			//When the toggler is unchecked, if start date has a value, 
+			//duplicate it into end date field
+			if (!isChecked && this.validateNotEmpty(this.$startDateControl)) {
+				this.$endDateControl.val(this.$startDateControl.val());
+			}
+		},
+
+		populateEndDate: function(){
+			if (!this.$endDateToggle.is(':checked')) {
+				this.$endDateControl.val(this.$startDateControl.val());	
+			}
+		},
+
+		createEventCard: function(eventData){
+			//TODO: plug in jquery date picker
 			
 			//Create new model and make a POST request to server and add to local collection
 			var newEvent = this.collection.create(eventData);
-			//Create a new event card view and append to events board
+			//Create a new event card view and prepend to events board
 			var newEventCard = new EventCard({
 				model: newEvent
 			});
-			$('[data-events-board]').prepend(newEventCard.render().$el);
+			$('[data-event="show"]').prepend(newEventCard.render().$el);
 		}	
 	});
 	

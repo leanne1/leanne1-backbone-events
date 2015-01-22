@@ -1,3 +1,5 @@
+'use strict';
+
 define([
 	'underscore', 
 	'Backbone',
@@ -13,7 +15,6 @@ define([
 			
 			//Regularly poll remote server to check for new events added by another user
 			this.pollRemote();
-		
 		},
 
 		//++++++++++++++++++++++++++++++++++
@@ -27,6 +28,14 @@ define([
 			this.poll = window.setInterval(function(){
 				self.fetch();
 			}, 30000);
+		},
+		
+		//Sort events by start date, with soonest first
+		sortByStartDate: function () {
+			var collection = _.sortBy(this.models, function(evt){
+				return evt.get('timeStamp');
+			});
+			return collection;
 		}
 	});
 	

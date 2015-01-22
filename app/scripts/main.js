@@ -5,16 +5,17 @@ require.config({
     shim: {
     },
     paths: {
-        Handlebars: '../bower_components/handlebars/handlebars',
         jquery: '../bower_components/jquery/dist/jquery',
-        Backbone: '../bower_components/backbone/backbone',
         underscore: '../bower_components/lodash/dist/lodash',
+        Handlebars: '../bower_components/handlebars/handlebars',
+        Backbone: '../bower_components/backbone/backbone',
         Evt: '../scripts/mvc/model/Event',
+        Evts: '../scripts/mvc/collection/Events',
         EventBoard: '../scripts/mvc/view/Event-Board',
         EventCard: '../scripts/mvc/view/Event-Card',
         EventForm: '../scripts/mvc/view/Event-Form',
-        Evts: '../scripts/mvc/collection/Events',
         tmplEventCard: '../scripts/mvc/template/event-card',
+        datepicker: '../bower_components/datetimepicker/jquery.datetimepicker',
         eventBuilder: '../scripts/mvc/init'
     }
 });

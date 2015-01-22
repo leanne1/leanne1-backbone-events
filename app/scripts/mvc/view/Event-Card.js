@@ -1,3 +1,5 @@
+'use strict';
+
 define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone, $, Handlebars){
 	var EventCard = Backbone.View.extend({
 		
@@ -13,7 +15,6 @@ define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone,
 		
 		initialize: function(options){
 			this.model = options.model;
-			console.log('EVENT CARD VIEW INIT');
 		},
 		
 		//+++++++++++++++++++++++++++++++++++++++++
