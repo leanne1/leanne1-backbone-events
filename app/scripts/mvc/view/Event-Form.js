@@ -13,7 +13,9 @@ define([
 		events: {
 			'click [data-event-config="submit"]' : 'createEvent',
 			'click [data-event-config="addEnd"]' : 'toggleEndDateControl',
-			'blur [data-event-config="startDate"]' : 'populateEndDate'
+			'blur [data-event-config="startDate"]' : 'populateEndDate',
+			'keyup [data-button="open-info"]' : 'showOpenInfoPopup',
+			'mouseover [data-button="open-info"]' : 'showOpenInfoPopup',
 		},
 
 		initialize: function(options){
@@ -24,7 +26,8 @@ define([
 			this.$startDateControl = $('[data-event-config="startDate"]');
 			this.$endDateControl = $('[data-event-config="endDate"]');
 			this.$endDateToggle = $('[data-event-config="addEnd"]');
-
+			this.$openInfoPopup = $('[data-popup="open-info"]');
+			this.popupIsVisible = false;
 		},
 
 		createEvent: function(e){
@@ -141,7 +144,26 @@ define([
 				model: newEvent
 			});
 			$('[data-event="show"]').prepend(newEventCard.render().$el);
-		}	
+		},
+
+		//If the 'open info' popup is not already showing,
+		//show the popup and start a timer to remove it after 2 seconds
+		showOpenInfoPopup: function(){
+			var self = this;
+			if (!this.popupIsVisible) {
+				this.$openInfoPopup
+					.addClass('js-visible')
+					.removeClass('js-hidden');
+				this.popupIsVisible = true;	
+
+				setTimeout(function(){
+					self.$openInfoPopup
+						.addClass('js-hidden')
+						.removeClass('js-visible');
+					self.popupIsVisible = false;	
+				}, 2000);	
+			}
+		}		
 	});
 	
 	return EventForm;

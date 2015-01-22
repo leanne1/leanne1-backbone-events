@@ -86,7 +86,6 @@ app.get( '/api/v1/userevents/123456789/events/:id', function( request, response 
     });
 });
 
-
 //Delete an event
 app.delete( '/api/v1/userevents/123456789/events/:id', function( request, response ) {
     console.log( 'Deleting event with id: ' + request.params.id );

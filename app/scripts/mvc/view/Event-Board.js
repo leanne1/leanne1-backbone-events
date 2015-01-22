@@ -21,6 +21,7 @@ define([
 			//+ API event listeners
 			//+++++++++++++++++++++++++++++++++++++++++
 			this.listenTo(this.collection, 'reset', this.createEventCards);
+			this.listenTo(this.collection, 'add', this.removeLastEventCard);
 		},
 		
 		createEventCards: function(){
@@ -46,6 +47,11 @@ define([
 				});
 				$cardsContainer.append(fragment);
 			}
+		},
+
+		//Remove the last card when we add a new one to the board
+		removeLastEventCard: function(){
+			$('[data-event-card]').last().remove();
 		}
 	});
 

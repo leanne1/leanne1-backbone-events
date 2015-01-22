@@ -62,7 +62,6 @@
                             <label for="event-start" class="txt-label">Start date*</label>
                             <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" required data-error-empty="Please include an event start date" data-error-start-date="The event start date must not be in the past" />
 
-                            <!-- TODO:this will have to be cloned from start date if the checkbox not checked -->
                             <label for="event-end" class="txt-label">End date*</label>
                             <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end" required data-error-empty="Please include an event end date, or uncheck the 'add end date' checkbox" data-error-end-date="The event end date must be on or after the start date" />
 
@@ -77,19 +76,21 @@
 
                         <div class="form form-section">
                             <span class="txt-label">Is it open to people from other charities?
-                            <button class="icn-info">
+                            <button class="icn-info" class="js-visible" data-button="open-info">
                                 <span class="hide-visually" aria-hidden="true">
                                     Get more information about open events
                                 </span>    
                             </button>    
-                            </label>
+                            <div class="js-hidden" data-popup="open-info">    
+                                <p>If the event is open to people supporting any charity, anyone making a page on JustGiving can select it.</p>
+                                <p>If the event is just for your supporters, it will only be available to those making JustGiving pages for your charity.</p>
+                            </div>     
                             
                             <input type="radio" data-event-config="isOpen" data-event-property="open" id="event-is-open" name="event-open" checked /> 
                             <label for="event-is-open" class="txt-label">Yes - anyone can take part</label>
 
                             <input type="radio" data-event-config="isClosed" id="event-is-closed" name="event-open" />                               
                             <label for="event-is-closed" class="txt-label">No - it's just for people raising money for my charity</label>
-
                         </div>
 
                         <div class="form form-section">    
@@ -98,9 +99,7 @@
                         </div>
                         <input type="hidden" data-event-config="userId" data-event-property="userId" value="123456789" />
                         <div class="form form-section">    
-                            <button class="btn btn-primary" data-event-config="submit">
-                                Create event
-                            </button>
+                            <input type="submit" value="Create event" class="btn btn-primary" data-event-config="submit" />
                         </div>
                         <span class="text-footnote">
                             * indicates a required field
@@ -114,7 +113,10 @@
                     <h2>Your events</h2>
                     <ul class="list list-stacked" data-event="show">
                         <!-- Backbone dynamic content -->
-                    </ul>    
+                    </ul> 
+                    <a href="/see-all-events/" class="btn btn-primary" data-button="see-all-events">
+                        See all your events
+                    </a>   
                 </div>
             </section>
         </main>

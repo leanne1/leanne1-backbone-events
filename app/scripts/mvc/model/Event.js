@@ -36,6 +36,7 @@ define([
 		//+++++++++++++++++++++++++++++++++++++++++
 		// From the provided start date, find the date, month and year
 		// and return them as human-readable strings to be added to the model
+		// also, add a UNIX timestamp representing event start date
 		getPrettyDate: function(date){
 			return new Date(date).getDate();
 		},

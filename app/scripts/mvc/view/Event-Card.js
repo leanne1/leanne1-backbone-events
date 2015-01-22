@@ -9,8 +9,8 @@ define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone,
 
 		eventCardTemplate: Handlebars.compile($('#eventcard-template').html()),
 
-		events: {
-			'' : ''
+		attributes: {
+			'data-event-card' : ''
 		},
 		
 		initialize: function(options){
