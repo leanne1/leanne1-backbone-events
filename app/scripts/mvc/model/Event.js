@@ -4,6 +4,8 @@ define([
 	], function(_, Backbone){
 	var Evt = Backbone.Model.extend({
 		
+		idAttribute: '_id',
+
 		initialize: function(){
 			this.extendModel();
 			

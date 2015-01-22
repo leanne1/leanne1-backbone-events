@@ -56,15 +56,16 @@ define([
 // 	description: 'run a long way!'
 // });
 
-			initFormView();
+			initFormView(evts);
 			initEventsBoard(evts);
 		}
 
 		//Initialise event form view
-		function initFormView () {
+		function initFormView (evts) {
 			var $el = $('[data-event="configure"]');
 			new EventForm({
-				el: $el
+				el: $el,
+				collection: evts
 			});
 		}
 

@@ -26,8 +26,8 @@ mongoose.connect( 'mongodb://localhost/events_database' );
 var Evt = new mongoose.Schema({
     userId: String,
     eventName: String,
-    startDate: Number,
-    endDate: Number,
+    startDate: String,
+    endDate: String,
     startLocation: String,
     open: Boolean,
     description: String

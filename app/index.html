@@ -55,16 +55,16 @@
                         <legend>About the event</legend>
                         <div class="form form-section">
                             <label for="event-name" class="txt-label">Name of Event*</label>
-                            <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" required data-error="Please include an event name" />
+                            <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" required data-error-empty="Please include an event name" />
                         </div>
 
                         <div class="form form-section">
                             <label for="event-start" class="txt-label">Start date*</label>
-                            <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" required data-error="Please include an event start date" />
+                            <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" required data-error-empty="Please include an event start date" data-error-start-date="The event start date must not be in the past" />
 
                             <!-- TODO:this will have to be cloned from start date if the checkbox not checked -->
                             <label for="event-end" class="txt-label">End date*</label>
-                            <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end" required data-error="Please include an event end date, or uncheck the 'add end date' checkbox" />
+                            <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end" required data-error-empty="Please include an event end date, or uncheck the 'add end date' checkbox" data-error-end-date="The event end date must be on or after the start date" />
 
                             <label for="event-addEnd" class="txt-label">Add an end date (if different)</label>
                             <input type="checkbox" data-event-config="addEnd" id="event-addEnd" />   
@@ -85,11 +85,12 @@
                             </button>    
                             </label>
                             
+                            <input type="radio" data-event-config="isOpen" data-event-property="open" id="event-is-open" name="event-open" checked /> 
                             <label for="event-is-open" class="txt-label">Yes - anyone can take part</label>
-                            <input type="radio" data-event-config="isOpen" data-event-property="open" id="event-is-open" name="event-open" /> 
-                            
+
+                            <input type="radio" data-event-config="isClosed" id="event-is-closed" name="event-open" />                               
                             <label for="event-is-closed" class="txt-label">No - it's just for people raising money for my charity</label>
-                            <input type="radio" data-event-config="isClosed" name="event-open" />   
+
                         </div>
 
                         <div class="form form-section">    
