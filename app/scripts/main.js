@@ -1,10 +1,10 @@
 'use strict';
 
-//TODO: This should be moved out of here into own file???
 require.config({
     shim: {
     },
     paths: {
+        text:  '../bower_components/requirejs-text/text',
         jquery: '../bower_components/jquery/dist/jquery',
         underscore: '../bower_components/lodash/dist/lodash',
         Handlebars: '../bower_components/handlebars/handlebars',
@@ -14,7 +14,8 @@ require.config({
         EventBoard: '../scripts/mvc/view/Event-Board',
         EventCard: '../scripts/mvc/view/Event-Card',
         EventForm: '../scripts/mvc/view/Event-Form',
-        tmplEventCard: '../scripts/mvc/template/event-card',
+        //TODO this doesnt work, README is useless
+        //tmplEventCard: 'text!../scripts/mvc/template/event-card.handlebars',
         datepicker: '../bower_components/datetimepicker/jquery.datetimepicker',
         eventBuilder: '../scripts/mvc/init'
     }

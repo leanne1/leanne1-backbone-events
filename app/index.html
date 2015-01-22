@@ -127,8 +127,7 @@
         <!-- TODO: get the requirejs text plugin so this can be pulled in from an external file-->
         <script id="eventcard-template" type="text/x-handlebars-template">
             <div class="event-date">
-                <!--TODO: Is this correct use of time el?-->
-                <time>
+                <time datetime="{{startDate}}">
                     <span class="event-month">
                         {{prettyStartMonth}}
                     </span>

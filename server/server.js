@@ -5,7 +5,6 @@ var application_root = __dirname,
 
 var app = express();
 
-//app.use( express.errorHandler({ dumpExceptions: true, showStack: true }));
 app.configure( function() {
     app.use( express.bodyParser() );
     app.use( express.methodOverride() );
@@ -38,9 +37,7 @@ var Evt = new mongoose.Schema({
 var EventModel = mongoose.model( 'Evt', Evt );
 
 //Get a list of all events
-//TODO: Get the userId from request.params
 app.get( '/api/v1/userevents/123456789/events', function( request, response ) {
-    console.log('GET request made');
     return EventModel.find( function( err, evts ) {
         if( !err ) {
             return response.send( evts );
@@ -51,7 +48,6 @@ app.get( '/api/v1/userevents/123456789/events', function( request, response ) {
 });
 
 //Create a new event
-//TODO: Get the userId from request.params
 app.post( '/api/v1/userevents/123456789/events', function( request, response ) {
     var evt = new EventModel({
         userId: request.body.userId,
@@ -75,7 +71,6 @@ app.post( '/api/v1/userevents/123456789/events', function( request, response ) {
 });
 
 //Get a single event by id
-//TODO: Get the userId from request.params
 app.get( '/api/v1/userevents/123456789/events/:id', function( request, response ) {
     return EventModel.findById( request.params.id, function( err, evt ) {
         if( !err ) {

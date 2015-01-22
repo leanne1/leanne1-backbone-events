@@ -23,6 +23,7 @@ define(['underscore', 'Backbone', 'jquery', 'Handlebars'], function(_, Backbone,
 
 		render: function(){
 			this.$el.html(this.eventCardTemplate({
+				startDate: this.model.escape('startDate'),
 				prettyStartMonth: this.model.escape('prettyStartMonth'),
 				prettyStartDate: this.model.escape('prettyStartDate'),
 				prettyStartYear: this.model.escape('prettyStartYear'),
