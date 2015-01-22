@@ -9,12 +9,6 @@ define([
 	'EventBoard'
 	], function($, Evt, Evts, EventForm, EventCard, EventBoard) {
 	
-	//TODO: This is our eventBuilder module. This script should contain everything
-	//we need to build the eventBuilder, including templates, CSS and JS
-	//All the deps should be 'required' in here or the relevant sub module
-	//so that ONLY if the eventBuilder is used on the page are these assets
-	//ever called into the site
-
 	//Creating an exposable api object 
 	//for easy-to-read declarative initialisation
 	var api = {

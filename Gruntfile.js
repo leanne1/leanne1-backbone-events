@@ -309,20 +309,24 @@ module.exports = function (grunt) {
     });
 
     grunt.registerTask('build', [
-        'clean:dist',
-        'createDefaultTemplate',
-        'jst',
         'useminPrepare',
-        'requirejs',
-        'imagemin',
         'htmlmin',
-        'concat',
-        'cssmin',
-        'uglify',
-        'copy',
-        'rev',
         'usemin'
     ]);
+
+        // 'clean:dist',
+        // 'createDefaultTemplate',
+        // 'jst',
+        // 'useminPrepare',
+        // 'requirejs',
+        // 'imagemin',
+        // 'htmlmin',
+        // 'concat',
+        // 'cssmin',
+        // 'uglify',
+        // 'copy',
+        // 'rev',
+        // 'usemin' ==> this tells app to use minified things, and doesnt work
 
     grunt.registerTask('default', [
         'jshint',
