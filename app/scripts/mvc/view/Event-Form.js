@@ -36,7 +36,8 @@ define([
 			
 			//Remove existing error messages
 			$('[data-error-message]').remove();
-			
+			this.$controls.removeAttr('aria-invalid');
+
 			this.$controls.each(function( i, control ){
 				var $control = $(control), 
 					property = $control.data('event-property'),
@@ -113,6 +114,7 @@ define([
 			var msg = $control.data('error-' + error),
 				msgContainer = $('<span class="error-message" data-error-message />');
 			msgContainer.text(msg).insertAfter($control);
+			$control.attr('aria-invalid', 'true');
 		},
 
 		toggleEndDateControl: function(){
@@ -120,6 +122,7 @@ define([
 			
 			//[Dis]able the end date field when add end date toggle is [un]checked
 			this.$endDateControl.attr('disabled', !isChecked);
+			this.$endDateControl.attr('aria-disabled', !isChecked)
 			
 			//When the toggler is unchecked, if start date has a value, 
 			//duplicate it into end date field

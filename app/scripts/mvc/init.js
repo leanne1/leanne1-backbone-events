@@ -40,7 +40,7 @@ define([
 			});
 		}
 
-		//Initialise events board with persisted event
+		//Initialise events board with persisted events
 		function initEventsBoard (evts) {
 			var $el = $('[data-events-board]');
 			new EventBoard({
