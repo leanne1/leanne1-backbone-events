@@ -13,7 +13,9 @@ define([
 			this.collection = options.collection;
 			//Get all persisted events
 			this.collection.fetch({ reset: true });
-			this.maxToShow = 5;
+			
+			//Show only a specified count of cards on events board
+			this.maxEventsToShow = 5;
 
 			//+++++++++++++++++++++++++++++++++++++++++
 			//+ API event listeners
@@ -32,14 +34,17 @@ define([
 							.appendTo($cardsContainer);
 			} else {
 				//Sort persisted events by start date, with soonest first, 
-				//then extract the top *n* we want to display
-				var showEvents = this.collection.sortByStartDate().slice(0, this.maxToShow);
+				//then extract the top *n* for display
+				var showEvents = this.collection.sortByStartDate().slice(0, this.maxEventsToShow),
+					fragment = document.createDocumentFragment();
 				
 				//If collection has events loop over each event and create a new event card
+				//then append all event cards to the event board
 				_.each(showEvents, function(model){
 					var $eventCard = new EventCard({ model: model }).render().$el;
-						$eventCard.appendTo($cardsContainer);
+					$eventCard.appendTo(fragment);
 				});
+				$cardsContainer.append(fragment);
 			}
 		}
 	});
