@@ -1,0 +1,37 @@
+.popup-bubble {
+	border: solid 1px $lightGrey;
+	box-shadow: $shadow; 
+	border-radius: 3px;
+	background-color: $beige;
+	padding: $sSpacingPx;
+	width: 250px;
+}
+
+.js {
+	.popup-bubble {
+		position: absolute;
+		top: -140px;
+		right: -20px;
+		z-index: 1;
+	}
+
+	@media screen and (min-width: 650px) {
+		.popup-bubble {
+			top: -20px;
+			right: -265px;
+		}
+	}
+	@media screen and (min-width: $breakpoint-m) {
+		.popup-bubble {
+			top: -140px;
+			right: -20px;
+		}
+	}
+
+	@media screen and (min-width: $breakpoint-l) {
+		.popup-bubble {
+			top: -20px;
+			right: -265px;
+		}
+	}
+}

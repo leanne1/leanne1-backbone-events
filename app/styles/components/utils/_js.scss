@@ -1,5 +1,16 @@
-.js-hidden {
+%hidden {
 	position: absolute;
 	top: -99999999999px;
 	opacity: 0;
+}
+
+.js {
+	.js-hidden {
+		@extend %hidden;
+	}	
+}
+.no-js {
+	.js-visible {
+		@extend %hidden;
+	}	
 }

@@ -758,7 +758,7 @@ table {
 .set-right {
   float: right; }
 
-.js-hidden {
+.js .js-hidden, .no-js .js-visible {
   position: absolute;
   top: -99999999999px;
   opacity: 0; }
@@ -975,6 +975,35 @@ textarea {
   border-radius: 10px 10px 0 0;
   background-color: #78256d; }
 
+.has-popup {
+  position: relative; }
+
+.popup-bubble {
+  border: solid 1px #9d938d;
+  box-shadow: 1px 0 10px 2px rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+  background-color: #e5e3dd;
+  padding: 10px;
+  width: 250px; }
+
+.js .popup-bubble {
+  position: absolute;
+  top: -140px;
+  right: -20px;
+  z-index: 1; }
+@media screen and (min-width: 650px) {
+  .js .popup-bubble {
+    top: -20px;
+    right: -265px; } }
+@media screen and (min-width: 768px) {
+  .js .popup-bubble {
+    top: -140px;
+    right: -20px; } }
+@media screen and (min-width: 1024px) {
+  .js .popup-bubble {
+    top: -20px;
+    right: -265px; } }
+
 .tabs {
   margin: 0;
   padding: 0;
@@ -1008,12 +1037,13 @@ textarea {
   .tab-main-nav {
     padding: 10px; } }
 .media-img {
-  display: inline-block;
+  display: block;
+  float: left;
   padding-right: 15px; }
 
 .media-content {
   display: block;
-  float: right; }
+  float: left; }
 
 .card-date {
   border: solid 1px #9d938d;
@@ -1057,7 +1087,7 @@ textarea {
 .event-details {
   position: relative;
   height: 80px;
-  width: 195px; }
+  width: 178px; }
   .event-details .h3 {
     margin-bottom: 0;
     height: 46px;
@@ -1065,3 +1095,7 @@ textarea {
   .event-details .btn {
     position: absolute;
     bottom: 0; }
+
+@media screen and (min-width: 481px) {
+  .event-details {
+    width: 200px; } }

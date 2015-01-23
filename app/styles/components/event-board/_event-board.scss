@@ -6,7 +6,7 @@
 .event-details {
 	position: relative;
 	height: 80px;
-	width: 195px;
+	width: 178px;
 
 	.h3 {
 		margin-bottom: 0;
@@ -18,3 +18,11 @@
 		bottom: 0;
 	}
 }
+
+//SMALL
+@media screen and (min-width: $breakpoint-s) {
+	.event-details {
+		width: 200px;
+	}
+}
+
