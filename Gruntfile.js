@@ -10,13 +10,12 @@ module.exports = function(grunt) {
             dist: {
                 files: [{
                     src: [
-                        sourceDir + 'styles/**/*.scss'
+                        sourceDir + 'styles/main.scss'
                     ],
-                    dest: buildDir + 'css/main.css'
+                    dest: buildDir + 'styles/main.css'
                 }]
             } 
         },
-
         //Watch files for changes, then run given task/s
         watch: {
             sass: {
@@ -32,7 +31,6 @@ module.exports = function(grunt) {
                 livereload: true
             }  
         },
-        
         //Concat css files    
         concat: {   
             options: {
@@ -97,11 +95,10 @@ module.exports = function(grunt) {
                         // sourceDir + '/styles/vendor/jquery-ui.theme.css',
                         '<%= sass.dist.files[0].dest %>'
                     ],
-                    dest: 'app/build/css/main.css'
+                    dest: 'app/build/styles/main.css'
                 }]
             }
         },
-
         //TODO: use require JS optimizer for this
         //Uglify js
         // uglify: {
@@ -136,7 +133,6 @@ module.exports = function(grunt) {
                 dest: buildDir + 'css/main.css'
             }
         },
-
         imagemin: {
             dist: {
                 files: [{
@@ -147,6 +143,20 @@ module.exports = function(grunt) {
                 }]
             }
         },
+        htmlmin: {
+            dist: {
+                options: {
+                    removeComments: true,
+                    collapseWhitespace: true
+                },
+                files: [{
+                    expand: true,
+                    cwd: sourceDir,
+                    src: '*.html',
+                    dest: buildDir
+                }]
+            }
+        },        
 
         //Copy source files to build dir
         // copy: {
@@ -174,9 +184,10 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-htmlmin');
     
     //Grunt tasks
     grunt.registerTask('dev',['watch']);
     //TODO --> add these back later: 'copy', 'uglify', 
-    grunt.registerTask('build',['sass', 'concat', 'cssmin', 'imagemin']); 
+    grunt.registerTask('build',['sass', 'concat', 'cssmin', 'imagemin', 'htmlmin']); 
 }

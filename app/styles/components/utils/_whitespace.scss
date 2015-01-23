@@ -1,0 +1,5 @@
+@import "../global/vars";
+@import "../../mixins/whitespace";
+
+@include whitespace(($xsSpacingPx,$sSpacingPx,$mSpacingPx,$lSpacingPx,$xlSpacingPx));
+
