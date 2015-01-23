@@ -16,6 +16,7 @@ define([
 			'blur [data-event-config="startDate"]' : 'populateEndDate',
 			'keyup [data-button="open-info"]' : 'showOpenInfoPopup',
 			'mouseover [data-button="open-info"]' : 'showOpenInfoPopup',
+			'click [data-button="open-info"]' : 'showOpenInfoPopup'
 		},
 
 		initialize: function(options){
@@ -130,7 +131,8 @@ define([
 				this.$endDateControl.val(this.$startDateControl.val());
 			}
 		},
-
+		//When the start date control is blurred, if the toggler is unchecked,
+		//duplicate the start date into end date field
 		populateEndDate: function(){
 			if (!this.$endDateToggle.is(':checked')) {
 				this.$endDateControl.val(this.$startDateControl.val());	
@@ -151,7 +153,8 @@ define([
 
 		//If the 'open info' popup is not already showing,
 		//show the popup and start a timer to remove it after 2 seconds
-		showOpenInfoPopup: function(){
+		showOpenInfoPopup: function(e){
+			e.preventDefault();
 			var self = this;
 			if (!this.popupIsVisible) {
 				this.$openInfoPopup

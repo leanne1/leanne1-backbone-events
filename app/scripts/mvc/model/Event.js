@@ -4,6 +4,7 @@ define([
 	'underscore', 
 	'Backbone'
 	], function(_, Backbone){
+	
 	var Evt = Backbone.Model.extend({
 		
 		idAttribute: '_id',
@@ -18,21 +19,17 @@ define([
 		//+++++++++++++++++++++++++++++++++++++++++
 		//+ Extend model
 		//+++++++++++++++++++++++++++++++++++++++++
-		
-		//Add human-readable date strings to model for use in view
-		//also add a UNIX time stamp for sorting events by start date,
-		//and add a unique event id for use elsewhere [e.g. promote event]
+		//Extend the model with computer-generated values
 		extendModel: function() {
 			this.set('timeStamp', this.getTimeStamp(this.get('startDate')));
 			this.set('prettyStartDate', this.getPrettyDate(this.get('startDate')));
 			this.set('prettyStartMonth', this.getPrettyMonth(this.get('startDate')));
 			this.set('prettyStartYear', this.getPrettyYear(this.get('startDate')));
 			this.set('eventId', this.get('userId') + '_' + this.cid);
-			
 		},
 
 		//+++++++++++++++++++++++++++++++++++++++++
-		//+ Extend model
+		//+ Date util methods
 		//+++++++++++++++++++++++++++++++++++++++++
 		// From the provided start date, find the date, month and year
 		// and return them as human-readable strings to be added to the model

@@ -39,7 +39,7 @@ define([
 				var showEvents = this.collection.sortByStartDate().slice(0, this.maxEventsToShow),
 					fragment = document.createDocumentFragment();
 				
-				//If collection has events loop over each event and create a new event card
+				//If collection has events, loop over each event and create a new event card
 				//then append all event cards to the event board
 				_.each(showEvents, function(model){
 					var $eventCard = new EventCard({ model: model }).render().$el;
@@ -50,6 +50,7 @@ define([
 		},
 
 		//Remove the last card when we add a new one to the board
+		//so to keep to our visible card limit
 		removeLastEventCard: function(){
 			$('[data-event-card]').last().remove();
 		}
