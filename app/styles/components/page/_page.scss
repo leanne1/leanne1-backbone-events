@@ -9,3 +9,25 @@ body {
 	padding: $xlSpacingPx $lSpacingPx;
 	box-shadow: $shadow; 
 }
+
+//MOBILE FIRST
+.events-board,
+.events-create {
+	margin-bottom: $mSpacingPx;
+}
+
+//MEDIUM
+@media screen and (min-width: $breakpoint-m) {
+	.col-1 {
+		padding-right: 320px;
+		position: relative;
+	}
+	.events-board {
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 300px;		
+	}
+}
+
+

@@ -1,4 +1,6 @@
-
+.box {
+	padding: $sSpacingPx;
+}
 
 //Import class skins
 @import "skin/box-pullout";

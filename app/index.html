@@ -11,28 +11,28 @@
     </head>
     <body>
         <section class="wrapper">
-            <header role="banner" class="header-page">
+            <header role="banner" class="header-page space-mbm">
                <img src="images/logo-main.png" class="logo-primary" alt="Just Giving logo" />
                 <nav role="navigation" class="nav nav-main">
                     <h1 class="h1-header">Macmillan Cancer Support Acount</h1>
-                    <ul class="tabs">
+                    <ul class="tabs clearfix">
                         <li class="tab tab-main-nav">
                             <a href="#">Home</a></li>
                         <li class="tab tab-main-nav">
                             <a href="#">Reports</a>
                         </li>
-                        <li class="tab tab-main-nav">
+                        <li class="tab tab-main-nav is-active">
                             <a href="#">Fundraising tools</a>
                         </li>
-                        <li class="tab tab-main-nav">
+                        <li class="tab tab-main-nav wide">
                             <a href="#">Branding &amp; Settings</a>
                         </li>
                     </ul>                
                 </nav>
             </header>
             <main role="main">
-                <nav role="navigation" class="list list-breadcrumb">
-                    <ul>
+                <nav role="navigation">
+                    <ul class="list list-breadcrumb clearfix space-mbs">
                         <li class="crumb">
                             <a href="">Fundraising tools</a>
                         </li>
@@ -44,97 +44,99 @@
                         </li>
                     </ul>                
                 </nav>
-                <section class="box box-pullout" data-event="add">
-                    <h2>Add a fundraising event</h2>
-                    <form role="form" data-event="configure" novalidate>
-                        <fieldset>
-                            <legend>About the event</legend>
-                            <div class="form form-section">
-                                <label for="event-name" class="txt-label" aria-describedby="required-key">
-                                    Name of Event*
-                                </label>
-                                <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" data-error-empty="Please include an event name" required aria-required="true" />
-                            </div>
+                <div class="col-1">
+                    <section class="box box-pullout events-create" data-event="add">
+                        <h2 class="space-mbxl">Add a fundraising event</h2>
+                        <form role="form" data-event="configure" novalidate>
+                            <fieldset>
+                                <legend class="h2">About the event</legend>
+                                <div class="form form-section">
+                                    <label for="event-name" class="txt-label" aria-describedby="required-key">
+                                        Name of Event*
+                                    </label>
+                                    <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" data-error-empty="Please include an event name" required aria-required="true" />
+                                </div>
 
-                            <div class="form form-section">
-                                <label for="event-start" class="txt-label" aria-describedby="required-key">
-                                    Start date*
-                                </label>
-                                <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" data-error-empty="Please include an event start date" data-error-start-date="The event start date must not be in the past" required aria-required="true" aria-controls="event-end" />
-                                <span class="icn icn-cal" aria-hidden="true"></span>
+                                <div class="form form-section">
+                                    <label for="event-start" class="txt-label" aria-describedby="required-key">
+                                        Start date*
+                                    </label>
+                                    <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" data-error-empty="Please include an event start date" data-error-start-date="The event start date must not be in the past" required aria-required="true" aria-controls="event-end" />
+                                    <span class="icn icn-cal" aria-hidden="true"></span>
 
-                                <label for="event-end" class="txt-label" aria-describedby="required-key">
-                                    End date*
-                                </label>
-                                <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end"  data-error-empty="Please include an event end date" data-error-end-date="The event end date must be on or after the start date" required aria-required="true" />
-                                <span class="icn icn-cal" aria-hidden="true"></span>
+                                    <label for="event-end" class="txt-label" aria-describedby="required-key">
+                                        End date*
+                                    </label>
+                                    <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end"  data-error-empty="Please include an event end date" data-error-end-date="The event end date must be on or after the start date" required aria-required="true" />
+                                    <span class="icn icn-cal" aria-hidden="true"></span>
 
-                                <label for="event-addEnd" class="txt-label">
-                                    Add an end date (if different<span class="hide-visually"> to start date</span>)
-                                </label>
-                                <input type="checkbox" data-event-config="addEnd" id="event-addEnd" checked aria-controls="event-end" />   
-                            </div>
+                                    <label for="event-addEnd" class="txt-label">
+                                        Add an end date (if different<span class="hide-visually"> to start date</span>)
+                                    </label>
+                                    <input type="checkbox" data-event-config="addEnd" id="event-addEnd" checked aria-controls="event-end" />   
+                                </div>
 
-                            <div class="form form-section">    
-                                <label for="event-start-location" class="txt-label">
-                                    Village, town or city where event begins
-                                </label>
-                                <input type="text" data-event-config="startLocation" data-event-property="startLocation" id="event-start-location" />
-                            </div>
+                                <div class="form form-section">    
+                                    <label for="event-start-location" class="txt-label">
+                                        Village, town or city where event begins
+                                    </label>
+                                    <input type="text" data-event-config="startLocation" data-event-property="startLocation" id="event-start-location" />
+                                </div>
 
-                            <div class="form form-section">
-                                <span class="txt-label">Is it open to people from other charities?
-                                <button class="js-visible" data-button="open-info" aria-hidden="true">
-                                    <span class="icn icn-info" aria-hidden="true"></span>
-                                    info
-                                </button>    
-                                <div class="js-hidden" data-popup="open-info" id="popup-open-info" class="popup popup-bubble">    
-                                    <p>If the event is open to people supporting any charity, anyone making a page on JustGiving can select it.</p>
-                                    <p>If the event is just for your supporters, it will only be available to those making JustGiving pages for your charity.</p>
-                                </div>     
-                                
-                                <input type="radio" data-event-config="isOpen" data-event-property="open" id="event-is-open" name="event-open" checked /> 
-                                <label for="event-is-open" class="txt-label">
-                                    Yes - anyone can take part
-                                </label>
+                                <div class="form form-section">
+                                    <span class="txt-label">Is it open to people from other charities?
+                                    <button class="js-visible" data-button="open-info" aria-hidden="true">
+                                        <span class="icn icn-info" aria-hidden="true"></span>
+                                        info
+                                    </button>    
+                                    <div class="js-hidden" data-popup="open-info" id="popup-open-info" class="popup popup-bubble">    
+                                        <p>If the event is open to people supporting any charity, anyone making a page on JustGiving can select it.</p>
+                                        <p>If the event is just for your supporters, it will only be available to those making JustGiving pages for your charity.</p>
+                                    </div>     
+                                    
+                                    <input type="radio" data-event-config="isOpen" data-event-property="open" id="event-is-open" name="event-open" checked /> 
+                                    <label for="event-is-open" class="txt-label">
+                                        Yes - anyone can take part
+                                    </label>
 
-                                <input type="radio" data-event-config="isClosed" id="event-is-closed" name="event-open" />                               
-                                <label for="event-is-closed" class="txt-label">
-                                    No - it's just for people raising money for my charity
-                                </label>
-                            </div>
+                                    <input type="radio" data-event-config="isClosed" id="event-is-closed" name="event-open" />                               
+                                    <label for="event-is-closed" class="txt-label">
+                                        No - it's just for people raising money for my charity
+                                    </label>
+                                </div>
 
-                            <div class="form form-section">    
-                                <label for="event-description" class="txt-label">
-                                    Event description
-                                </label>
-                                <textarea data-event-config="description" data-event-property="description" id="event-description"></textarea>
-                            </div>
-                            <input type="hidden" data-event-config="userId" data-event-property="userId" value="123456789" aria-hidden="true" aria-readonly="true" />
-                            <div class="form form-section">    
-                                <input type="submit" value="Create event" class="btn btn-primary" data-event-config="submit" />
-                            </div>
-                            <span class="txt txt-footnote" id="required-key">
-                                * indicates a required field
-                            </span>
-                        </fieldset>       
-                    </form>
-                </section>
-                <section class="box box-pullout" data-events-board>
-                    <img src="" class="charity-logo" alt="We are Macmillan cancer support - logo" />
-                    <div>
-                        <h2>Your events</h2>
-                        <ul class="list list-stacked" data-event="show">
-                            <!-- Backbone dynamic content -->
-                        </ul> 
-                        <a href="/see-all-events/" class="btn btn-primary" data-button="see-all-events">
-                            See all your events
-                        </a>   
-                    </div>
-                </section>
+                                <div class="form form-section">    
+                                    <label for="event-description" class="txt-label">
+                                        Event description
+                                    </label>
+                                    <textarea data-event-config="description" data-event-property="description" id="event-description"></textarea>
+                                </div>
+                                <input type="hidden" data-event-config="userId" data-event-property="userId" value="123456789" aria-hidden="true" aria-readonly="true" />
+                                <div class="form form-section">    
+                                    <input type="submit" value="Create event" class="btn btn-primary" data-event-config="submit" />
+                                </div>
+                                <span class="txt txt-footnote" id="required-key">
+                                    * indicates a required field
+                                </span>
+                            </fieldset>       
+                        </form>
+                    </section>
+                    <section class="box box-pullout events-board" data-events-board>
+                        <img src="" class="charity-logo" alt="We are Macmillan cancer support - logo" />
+                        <div>
+                            <h2>Your events</h2>
+                            <ul class="list list-stacked" data-event="show">
+                                <!-- Backbone dynamic content -->
+                            </ul> 
+                            <a href="/see-all-events/" class="btn btn-primary" data-button="see-all-events">
+                                See all your events
+                            </a>   
+                        </div>
+                    </section>
+                </div>    
             </main>
             <footer role="footer">
-                <img src="" class="logo-secondary" alt="Just Giving logo" />
+                <img src="images/logo-main.png" class="logo-secondary" alt="Just Giving logo" />
             </footer>
         </section>    
         <script data-main="scripts/main" src="bower_components/requirejs/require.js"></script>

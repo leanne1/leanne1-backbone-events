@@ -1,0 +1,15 @@
+.crumb {
+	display: block;
+	float: left;
+	font-size: 14px;
+	line-height: 14px;
+	color: $lightGrey;
+}
+.crumb:after {
+	content: '>';
+	display: inline;
+	margin-right: $xsSpacingPx;
+}
+.crumb:last-child:after {
+	content: '';
+}

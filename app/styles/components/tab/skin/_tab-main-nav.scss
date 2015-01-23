@@ -1,0 +1,28 @@
+//MOBILE FIRST
+.tab-main-nav {
+	width: 100%;
+	padding: $xsSpacingPx;
+	color: $white;
+	font-weight: bold;
+}
+.tab-main-nav.is-active {
+	background-color: $white;
+	color: $purple;
+}
+
+//SMALL
+@media screen and (min-width: $breakpoint-s) {
+	.tab-main-nav {
+		width: 23%;
+	}
+	.tab-main-nav.wide {
+		width: 31%;
+	}
+}
+//MEDIUM
+@media screen and (min-width: $breakpoint-m) {
+	.tab-main-nav {
+		padding: $sSpacingPx;
+	}
+}
+

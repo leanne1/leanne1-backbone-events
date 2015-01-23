@@ -1,10 +1,19 @@
+//BREAKPOINT
+$breakpoint-xs: 320px;
+$breakpoint-s: 481px;
+$breakpoint-m: 768px;
+$breakpoint-l: 1024px;
+
+//SPACING
 $xsSpacingPx: 5px;
 $sSpacingPx: 10px;
 $mSpacingPx: 15px;
 $lSpacingPx: 20px;
 $xlSpacingPx: 25px;
 
+//FONT
 $baseFontSize: 13px; 
 $baseLineHeight: 16px;
 
+//SHADOW
 $shadow: 1px 0 10px 2px $black_15pc;

@@ -1,8 +1,17 @@
 .tabs {
 	margin: 0;
+	padding: 0;
+	width: 100%;
+	text-align: center;
 }
 .tab {
-	display: inline-block;
+	display: block;
+	float: left;
+
+	a {
+		display: block;
+		text-align: center;
+	}
 }
 
 //Import class skins
