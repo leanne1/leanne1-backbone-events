@@ -1,4 +1,11 @@
-
+.btn {
+	display: inline-block;
+	width: 150px;
+	font-size: 14px;	
+	height: 30px;
+	line-height: 1.5;
+}
 
 //Import class skins
 @import "skin/btn-primary";
+@import "skin/btn-secondary";

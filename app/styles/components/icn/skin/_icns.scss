@@ -1,0 +1,12 @@
+.icn-cal {
+	width: 17px;
+	height: 18px;
+	//Would normally use compass with a sass mixin for creatng icons, including retina version
+	background: transparent url('../../images/sprites/sprite.png') -174px -22px no-repeat;
+
+}
+.icn-info {
+	width: 18px;
+	height: 18px;
+	background: transparent url('../../images/sprites/sprite.png') -172px -1px no-repeat;	
+}

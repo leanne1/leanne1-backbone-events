@@ -1,0 +1,10 @@
+.btn-secondary {
+	font-weight: bold;
+	border-radius: 2px;
+	border: solid 1px $tangerine;
+	background-color: $yellowDark;
+	padding: ($xsSpacingPx + 1) ($sSpacingPx + 1);
+	background-image: -webkit-linear-gradient($yellowDark 0%, $yellowLight 100%);
+	background-image:      -o-linear-gradient($yellowDark 0%, $yellowLight 100%);
+  	background-image:         linear-gradient($yellowDark 0%, $yellowLight 100%);	
+}

@@ -1,0 +1,11 @@
+.btn-primary {
+	border: 0;
+	color: white;
+	font-weight: bold;
+	background-color: $purple;
+	padding: $xsSpacingPx $sSpacingPx;
+	background-image: -webkit-linear-gradient($purpleLight 0%, $purple 100%);
+	background-image:      -o-linear-gradient($purpleLight 0%, $purple 100%);
+  	background-image:         linear-gradient($purpleLight 0%, $purple 100%);	
+
+}

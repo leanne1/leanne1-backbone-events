@@ -1,7 +1,46 @@
+//DEFAULTS
 fieldset {
 	border: 0;
 	padding: 0;
 }
-legend {
-	
+input[type="text"],
+input[type="date"],
+textarea {
+ 	width: 100%;
 }
+textarea {
+	height: 100px;
+}
+
+//FORM LAYOUT
+.form-section {
+	margin-bottom: $mSpacingPx;
+}
+.form-two-col {
+	width: 50%;
+	float: left;
+	padding:0 $sSpacingPx;
+}
+.form-two-col:nth-child(odd) {
+	padding-left: 0;
+}
+.form-two-col:nth-child(even) {
+	padding-right: 0;
+}
+.input-has-icon, 
+.form-two-col:nth-child(odd).input-has-icon,
+.form-two-col:nth-child(even).input-has-icon {
+	padding-right: 30px;
+	position: relative;
+}	
+.form-radio-stack {
+	display: block;
+	margin-bottom: $sSpacingPx;
+} 
+.label-block {
+	display: block;
+	margin-bottom: $xsSpacingPx;
+}
+
+//Import class skins
+@import "skin/form-create-event";
