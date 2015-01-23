@@ -1,4 +1,9 @@
-
+.tabs {
+	margin: 0;
+}
+.tab {
+	display: inline-block;
+}
 
 //Import class skins
 @import "skin/tab-main-nav";
