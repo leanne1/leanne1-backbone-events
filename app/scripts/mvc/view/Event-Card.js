@@ -12,7 +12,7 @@ define([
 		
 		tagName: 'li',
 
-		className: 'card card-event',
+		className: 'card card-event clearfix',
 
 		eventCardTemplate: Handlebars.compile(tmplEventCard),
 

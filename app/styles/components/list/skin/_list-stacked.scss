@@ -1,0 +1,6 @@
+.list-stacked {
+	> li {
+		border-top: solid 1px $lightGrey;
+		padding: $mSpacingPx 0;
+	} 
+}

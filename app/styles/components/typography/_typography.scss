@@ -31,6 +31,14 @@ a {
 	color: inherit;
 	text-decoration: none;
 }
+.link-inline {
+	font-size: 14px;
+	font-weight: normal;
+	text-decoration: underline;
+}
+.link-inline:hover {
+	text-decoration: none;
+}
 
 //LABELS
 .txt-label {

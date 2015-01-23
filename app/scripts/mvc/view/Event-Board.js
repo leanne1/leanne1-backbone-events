@@ -15,7 +15,7 @@ define([
 			this.collection.fetch({ reset: true });
 			
 			//Show only a specified count of cards on events board
-			this.maxEventsToShow = 3;
+			this.maxEventsToShow = 4;
 
 			//+++++++++++++++++++++++++++++++++++++++++
 			//+ API event listeners

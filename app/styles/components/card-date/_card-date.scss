@@ -1,0 +1,28 @@
+.card-date {
+	border: solid 1px $lightGrey;
+	border-bottom: solid 4px $purple;
+}
+.card-date-month {
+	display: block;
+	text-align: center;
+	background-color: $purple;
+	color: $white;
+	font-size: 14px;
+	font-weight: bold;
+	padding: 2px $sSpacingPx;
+}
+.card-date-date {
+	display: block;
+	text-align: center;
+	font-weight: bold;
+	font-size: 27px;
+	background-color: $white;
+	padding: 2px $sSpacingPx;
+}
+.card-date-year {
+	display: block;
+	text-align: center;
+	font-size: 14px;
+	background-color: $white;
+	padding: 0 $sSpacingPx $xsSpacingPx;
+}

@@ -1,19 +1,21 @@
-<div class="event-date">
-    <time datetime="{{startDate}}">
-        <span class="event-month">
-            {{prettyStartMonth}}
-        </span>
-        <span class="event-date">
-            {{prettyStartDate}}
-        </span>
-        <span class="event-year">
-            {{prettyStartYear}}
-        </span>
-    </time>
+<div class="event-date media-img">
+    <div class="card-date">
+        <time datetime="{{startDate}}">
+            <span class="card-date-month">
+                {{prettyStartMonth}}
+            </span>
+            <span class="card-date-date">
+                {{prettyStartDate}}
+            </span>
+            <span class="card-date-year">
+                {{prettyStartYear}}
+            </span>
+        </time>
+    </div>
 </div>
-<div class="event-details">
-    <h3>
-        <a href="#">{{eventName}}</a>
+<div class="event-details media-content">
+    <h3 class="h3">
+        <a href="#" class="link-inline">{{eventName}}</a>
     </h3>
     <button class="btn btn-secondary" data-event="promote" data-event-id="{{eventId}}">
         Promote<span class="hide-visually"> this event</span>
