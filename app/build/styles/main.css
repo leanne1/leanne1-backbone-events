@@ -776,9 +776,7 @@ body {
 
 .events-board,
 .events-create {
-  margin-bottom: 15px;
-  height: 625px;
-  overflow: hidden; }
+  margin-bottom: 15px; }
 
 @media screen and (min-width: 768px) {
   .col-1 {
@@ -1075,6 +1073,10 @@ textarea {
 
 .header-page {
   padding-top: 25px; }
+
+.footer {
+  border-top: solid 1px #9d938d;
+  padding: 50px 0; }
 
 .logo-secondary {
   width: 100px; }

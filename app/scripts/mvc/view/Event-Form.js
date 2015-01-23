@@ -167,7 +167,7 @@ define([
 						.addClass('js-hidden')
 						.removeClass('js-visible');
 					self.popupIsVisible = false;	
-				}, 400000);	
+				}, 2000);	
 			}
 		}		
 	});

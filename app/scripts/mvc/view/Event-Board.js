@@ -36,9 +36,9 @@ define([
 			} else {
 				//Sort persisted events by start date, with soonest first, 
 				//then extract the top *n* for display
-				var showEvents = this.collection.sortByStartDate().slice(0, this.maxEventsToShow),
+				var showEvents = this.collection.sortByCreatedDate().reverse().slice(0, this.maxEventsToShow),
 					fragment = document.createDocumentFragment();
-				
+				console.log('showEvents', showEvents);
 				//If collection has events, loop over each event and create a new event card
 				//then append all event cards to the event board
 				_.each(showEvents, function(model){
@@ -52,6 +52,7 @@ define([
 		//Remove the last card when we add a new one to the board
 		//so to keep to our visible card limit
 		removeLastEventCard: function(){
+			console.log('removeLastEventCard called')
 			$('[data-event-card]').last().remove();
 		}
 	});

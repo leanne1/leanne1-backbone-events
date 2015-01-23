@@ -1,3 +1,5 @@
+//Would normally handle page-level layout [and media queries] with a responsive grid
+//e.g. something like bootstrap's responsive grid, but no time to add this here
 body {
 	background-color: $beige;
 }
@@ -14,8 +16,6 @@ body {
 .events-board,
 .events-create {
 	margin-bottom: $mSpacingPx;
-	height: 625px;
-	overflow: hidden;
 }
 
 //MEDIUM

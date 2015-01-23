@@ -1,3 +1,6 @@
+//Popup us missing 'arrow'
+//would have attempted this with svg has I the time,
+//with no arrow [graceful degradation] for non-svg browsers
 .popup-bubble {
 	border: solid 1px $lightGrey;
 	box-shadow: $shadow; 
@@ -14,7 +17,7 @@
 		right: -20px;
 		z-index: 1;
 	}
-
+	//Off-spec media query; not really nice
 	@media screen and (min-width: 650px) {
 		.popup-bubble {
 			top: -20px;
@@ -27,7 +30,6 @@
 			right: -20px;
 		}
 	}
-
 	@media screen and (min-width: $breakpoint-l) {
 		.popup-bubble {
 			top: -20px;

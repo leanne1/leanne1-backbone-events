@@ -15,10 +15,10 @@ define([
 			this.url = '/api/v1/userevents/' + options.userId + '/events';
 		},
 
-		//Sort events by start date, with soonest first
-		sortByStartDate: function () {
+		//Sort events by created date, with most recently created first
+		sortByCreatedDate: function () {
 			var collection = _.sortBy(this.models, function(evt){
-				return evt.get('timeStamp');
+				return evt.get('createdTimeStamp');
 			});
 			return collection;
 		}

@@ -21,7 +21,8 @@ define([
 		//+++++++++++++++++++++++++++++++++++++++++
 		//Extend the model with computer-generated values
 		extendModel: function() {
-			this.set('timeStamp', this.getTimeStamp(this.get('startDate')));
+			this.set('createdTimeStamp', this.getTimeStamp(new Date()));
+			this.set('startDateTimeStamp', this.getTimeStamp(this.get('startDate')));
 			this.set('prettyStartDate', this.getPrettyDate(this.get('startDate')));
 			this.set('prettyStartMonth', this.getPrettyMonth(this.get('startDate')));
 			this.set('prettyStartYear', this.getPrettyYear(this.get('startDate')));
