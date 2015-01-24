@@ -930,12 +930,12 @@ textarea {
 .icn-cal {
   width: 17px;
   height: 18px;
-  background: transparent url("../../images/sprites/sprite.png") -174px -22px no-repeat; }
+  background: transparent url("../../build/images/sprites/sprite.png") -174px -22px no-repeat; }
 
 .icn-info {
   width: 18px;
   height: 18px;
-  background: transparent url("../../images/sprites/sprite.png") -172px -1px no-repeat; }
+  background: transparent url("../../build/images/sprites/sprite.png") -172px -1px no-repeat; }
 
 .list {
   margin: 0;
@@ -1077,7 +1077,7 @@ textarea {
 .charity-logo {
   width: 166px;
   height: 62px;
-  background: transparent url("../../images/sprites/sprite.png") 0 0 no-repeat; }
+  background: transparent url("../../build/images/sprites/sprite.png") 0 0 no-repeat; }
 
 .event-details {
   position: relative;

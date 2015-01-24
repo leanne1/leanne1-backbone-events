@@ -22,6 +22,10 @@ module.exports = function(grunt) {
                 files: [sourceDir + 'styles/**/*.scss'],
                 tasks: ['sass', 'concat:css']
             },
+            images: {
+                files: [sourceDir + 'images/**/*.{png,jpg,jpeg}'],
+                tasks: ['imagemin']
+            },
             //TODO: use requirejs-optimizer for JS
             // js: {
             //     files: [sourceDir + 'js/**/*.js', '!' + sourceDir + 'js/lib/*.js', '!' + sourceDir + 'js/build-source/*.js'],
@@ -31,28 +35,32 @@ module.exports = function(grunt) {
                 livereload: true
             }  
         },
-        //Concat css files    
+        //Concat JS and CSS files    
         concat: {   
             options: {
                 separator: ';',
             },
             js_head: {
-                files: [{
-                    src: [
-                        sourceDir + 'scripts/head/*.js'
-                    ],
-                    dest: buildDir + 'scripts/head/head.js'
-                }]
+                files: [
+                    {
+                        src: [
+                            sourceDir + 'scripts/head/*.js'
+                        ],
+                        dest: buildDir + 'scripts/head/head.js'
+                    }
+                ]
             },
             css: {
-                files: [{
-                    src: [
-                        // sourceDir + '/styles/vendor/jquery-ui.structure.css',
-                        // sourceDir + '/styles/vendor/jquery-ui.theme.css',
-                        '<%= sass.dist.files[0].dest %>'
-                    ],
-                    dest: 'app/build/styles/main.css'
-                }]
+                files: [
+                    {
+                        src: [
+                            // sourceDir + '/styles/vendor/jquery-ui.structure.css',
+                            // sourceDir + '/styles/vendor/jquery-ui.theme.css',
+                            '<%= sass.dist.files[0].dest %>'
+                        ],
+                        dest: 'app/build/styles/main.css'
+                    }
+                ]
             }
         },
         //TODO: use require JS optimizer for require files
@@ -80,58 +88,33 @@ module.exports = function(grunt) {
                 dest: buildDir + 'css/main.css'
             }
         },
+        //Optimise images
         imagemin: {
             dist: {
-                files: [{
-                    expand: true,
-                    cwd: sourceDir + 'images',
-                    src: '{,*/}*.{png,jpg,jpeg}',
-                    dest: buildDir + 'images'
-                }]
+                files: [
+                    {
+                        expand: true,
+                        cwd: sourceDir + 'images',
+                        src: '{,*/}*.{png,jpg,jpeg}',
+                        dest: buildDir + 'images'
+                    }
+                ]
             }
         },
-        htmlmin: {
-            dist: {
-                options: {
-                    removeComments: true,
-                    collapseWhitespace: true
-                },
-                files: [{
-                    expand: true,
-                    cwd: sourceDir,
-                    src: '*.html',
-                    dest: buildDir
-                }]
-            }
-        },        
-
-        //Copy source files to build dir
-        // copy: {
-        //     dist: {
-        //         files: [{
-        //             expand: true,
-        //             cwd: sourceDir + 'scripts/head/',
-        //             src: [
-        //                 '*.js'
-        //                 ],
-        //             dest: buildDir + 'scripts/head/'
-        //         }]
-        //     }
-        // }        
     });
     
     //Load Grunt plugins
-    grunt.loadNpmTasks('grunt-contrib-copy');
+    //grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
-    grunt.loadNpmTasks('grunt-contrib-htmlmin');
+    //grunt.loadNpmTasks('grunt-contrib-htmlmin');
     
     //Grunt tasks
     grunt.registerTask('dev',['watch']);
     //TODO --> add these back later: 'copy', , 
-    grunt.registerTask('build',['sass', 'concat', 'cssmin', 'imagemin', 'htmlmin', 'uglify']); 
+    grunt.registerTask('build',['sass', 'concat', 'cssmin', 'imagemin', 'uglify']); 
 }
