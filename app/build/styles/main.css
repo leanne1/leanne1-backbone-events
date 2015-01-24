@@ -725,9 +725,6 @@ table {
 .space-mlxl {
   margin-left: 25px !important; }
 
-/*++++++++++++++++++++++++++++
-//	Clearfix
-++++++++++++++++++++++++++++*/
 .clearfix:before,
 .clearfix:after {
   content: "";
@@ -736,9 +733,6 @@ table {
 .clearfix:after {
   clear: both; }
 
-/*++++++++++++++++++++++++++++
-//	Hide visually
-++++++++++++++++++++++++++++*/
 .hide-visually {
   border: 0;
   clip: rect(0 0 0 0);
@@ -756,7 +750,7 @@ table {
   display: inline-block !important; }
 
 .set-right {
-  float: right; }
+  float: right !important; }
 
 .js .js-hidden, .no-js .js-visible {
   position: absolute;
@@ -852,8 +846,8 @@ p {
 .btn {
   display: inline-block;
   width: 150px;
-  font-size: 14px;
   height: 30px;
+  font-size: 14px;
   line-height: 1.4; }
 
 .btn-primary {
@@ -861,7 +855,7 @@ p {
   color: white;
   font-weight: bold;
   background-color: #78256d;
-  padding: 5px 10px;
+  padding: 6px 11px;
   background-image: -webkit-linear-gradient(#995389 0%, #78256d 100%);
   background-image: -o-linear-gradient(#995389 0%, #78256d 100%);
   background-image: linear-gradient(#995389 0%, #78256d 100%); }
@@ -871,7 +865,7 @@ p {
   border-radius: 2px;
   border: solid 1px #eaac00;
   background-color: #efb702;
-  padding: 6px 11px;
+  padding: 5px 10px;
   background-image: -webkit-linear-gradient(#efb702 0%, #eac55e 100%);
   background-image: -o-linear-gradient(#efb702 0%, #eac55e 100%);
   background-image: linear-gradient(#efb702 0%, #eac55e 100%); }
@@ -952,7 +946,6 @@ textarea {
   display: block;
   float: left;
   font-size: 14px;
-  line-height: 14px;
   color: #9d938d; }
 
 .crumb:after {
@@ -1084,7 +1077,7 @@ textarea {
 .charity-logo {
   width: 166px;
   height: 62px;
-  background: transparent url("../../images/sprites/sprite.png") 0px 0px no-repeat; }
+  background: transparent url("../../images/sprites/sprite.png") 0 0 no-repeat; }
 
 .event-details {
   position: relative;

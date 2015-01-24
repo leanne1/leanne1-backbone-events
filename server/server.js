@@ -1,3 +1,6 @@
+//Simple Node server using the Express framework
+//with a REST API for making JSON based requests / responses
+//using mongoose to connect to and communicate with a MongoDB database
 var application_root = __dirname,
     express = require( 'express' ), 
     path = require( 'path' ),
@@ -31,7 +34,11 @@ var Evt = new mongoose.Schema({
     open: Boolean,
     description: String,
     startDateTimeStamp: Number,
-    createdTimeStamp: Number
+    createdTimeStamp: Number,
+    prettyStartDate: String,
+    prettyStartMonth: String,
+    prettyStartYear: String
+    eventId: String
 });
 
 //Models
@@ -59,7 +66,11 @@ app.post( '/api/v1/userevents/123456789/events', function( request, response ) {
         open: request.body.open,
         description: request.body.description,
         startDateTimeStamp: request.body.startDatetimeStamp,
-        createdTimeStamp: request.body.createdTimeStamp
+        createdTimeStamp: request.body.createdTimeStamp,
+        prettyStartDate: request.body.prettyStartDate,
+        prettyStartMonth: request.body.prettyStartMonth,
+        prettyStartYear: request.body.prettyStartYear,
+        eventId: request.body.eventId
     });
     
     return evt.save( function( err ) {

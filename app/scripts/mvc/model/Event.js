@@ -1,17 +1,22 @@
 'use strict';
 
 define([
-	'underscore', 
 	'Backbone'
-	], function(_, Backbone){
+	], function(Backbone){
 	
+	//Event model constructor
 	var Evt = Backbone.Model.extend({
 		
 		idAttribute: '_id',
 
+		defaults: {
+			startLocation: '',
+			description: ''
+		},
+
 		initialize: function(){
 			this.extendModel();
-			
+
 			//FOR DEV - delete all events in db
 			//this.destroy();
 		},
@@ -34,7 +39,7 @@ define([
 		//+++++++++++++++++++++++++++++++++++++++++
 		// From the provided start date, find the date, month and year
 		// and return them as human-readable strings to be added to the model
-		// also, add a UNIX timestamp representing event start date
+		// also, add a UNIX timestamp representing event start date and event created date
 		getPrettyDate: function(date){
 			return new Date(date).getDate();
 		},

@@ -1,4 +1,11 @@
-@import "mixins/webkit-line-clamp";
+// Using and OOCSS style structure to organise styles 
+// into portable / reusable components
+// makes use of the OOCSS whitespace mixin to generate consistent 
+// spacing classes; generate one css file containing only the 
+// components needed on this page [in this case, all of them].
+// Media queries have been 'manually' implemented. My preferred approach
+// is to use a responsive grid. 
+// Values are stored as variables for re-use / consistency
 
 @import "components/global/colours";
 @import "components/global/vars";

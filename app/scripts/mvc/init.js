@@ -2,12 +2,10 @@
 
 define([
 	'jquery',
-	'Evt',
 	'Evts',
 	'EventForm', 
-	'EventCard', 
 	'EventBoard'
-	], function($, Evt, Evts, EventForm, EventCard, EventBoard) {
+	], function($, Evts, EventForm, EventBoard) {
 	
 	//Creating an exposable api object 
 	//for easy-to-read declarative initialisation
@@ -15,10 +13,11 @@ define([
 		init: init
 	}
 	
-	//This is the app bootstrap function; it initialises everything we 
-	//need to start the app
+	//This is the app bootstrap function; it initialises everything  
+	//needed to start the app
 	function init () {
-		//Get the unique [charity] userId so we know which url to for our server-side API
+		//Get the unique [charity] userId so we know 
+		//which url to used for the server-side API
 		var userId = $('[data-event-config="userId"]').val();
 		
 		//Initialise events collection
@@ -49,6 +48,7 @@ define([
 			});
 		}
 
+		//Start up everything
 		initCollection();
 	}
 

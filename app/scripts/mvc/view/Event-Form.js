@@ -4,12 +4,13 @@ define([
 	'underscore', 
 	'Backbone', 
 	'jquery',
-	'Evts',
 	'EventCard'
-	], function(_, Backbone, $, Evts, EventCard){
+	], function(_, Backbone, $, EventCard){
 
+	//Constructor for event form view
 	var EventForm = Backbone.View.extend({
 		
+		//Bind handlers to events on objects in the view
 		events: {
 			'click [data-event-config="submit"]' : 'createEvent',
 			'click [data-event-config="addEnd"]' : 'toggleEndDateControl',
@@ -30,21 +31,30 @@ define([
 			this.$openInfoPopup = $('[data-popup="open-info"]');
 			this.popupIsVisible = false;
 		},
-
+		//Create a new event model based on the values added by the user in the form
+		//when the user clicks the submit input, preventing the default action
+		//Run some validation against various form controls
 		createEvent: function(e){
 			e.preventDefault();
 			var self = this, eventData = {}, isValid, isClean = [], canSubmit;
 			
-			//Remove existing error messages
+			//Remove any existing error messages
 			$('[data-error-message]').remove();
 			this.$controls.removeAttr('aria-invalid');
 
+			//Loop over each control in the form field and get its property name
+			//which is then used to augment the event model object
 			this.$controls.each(function( i, control ){
 				var $control = $(control), 
 					property = $control.data('event-property'),
 					required = $control.attr('required')
 					;
 				
+				//Check if the input has a required flag, 
+				//if so run validation against its value
+				//if it passes note this in the isClesn check array and add the value 
+				//to the event model object
+				//If its not required we need to sanitize the open event radio value to a boolean
 				if (required) {
 					isValid = self.validate($control);
 					if (isValid) {
@@ -59,17 +69,22 @@ define([
 					}
 				};
 			});
-	
+			//After running all necesary validation, check that all values pass [are 'clean']
+			//then pass the newly populated objct to create a new event card view
 			canSubmit = _.every(isClean, function(control){
 				return (control === true);
 			});
 			canSubmit && this.createEventCard(eventData);
 		},
-
+		//Sanitize 'is event open' value to boolean
 		setIsOpenValue: function ($control) {
 			return $control.is(':checked');
 		},
 
+		//Basic validation method
+		//Currently suports checking for empty fields, and invalid start and end dates
+		//Trigger error messages for invalid fields. Could be refactored to return an 
+		//array of failing inputs with error messages triggered elsewhere
 		validate: function ($control) {
 			var isValid = true,
 				empty = !this.validateNotEmpty($control),
@@ -88,11 +103,12 @@ define([
 			} 
 			return isValid;
 		},
-
+		//Check input is not empty
 		validateNotEmpty: function($control) {
 			return $control.val() !== '';
 		},
-
+		//Check start date is today or in future -
+		//assumption made here that start dates cannot be retrospectively added
 		validateStartDate: function ($control) {
 			if ($control.data('event-property') === 'startDate') {
 				var startDate = new Date ($('[data-event-property="startDate"]').val()).getTime();	
@@ -101,7 +117,7 @@ define([
 			}
 			return true;
 		},
-
+		//Check end date is on / after start date
 		validateEndDate: function ($control) {
 			if ($control.data('event-property') === 'endDate') {
 				var startDate = new Date ($('[data-event-property="startDate"]').val()).getTime();
@@ -110,14 +126,15 @@ define([
 			}
 			return true;
 		},
-
+		//Handle the display of relevant error message
 		showErrorMEssage: function($control, error){
 			var msg = $control.data('error-' + error),
 				msgContainer = $('<span class="error-message" data-error-message />');
 			msgContainer.text(msg).insertAfter($control);
 			$control.attr('aria-invalid', 'true');
 		},
-
+		//Toggle the end date control based on whether the user has selected
+		//to add different start / end dates
 		toggleEndDateControl: function(){
 			var isChecked = this.$endDateToggle.is(':checked');
 			
@@ -131,14 +148,14 @@ define([
 				this.$endDateControl.val(this.$startDateControl.val());
 			}
 		},
-		//When the start date control is blurred, if the toggler is unchecked,
+		//When the start date control is blurred, if the end date toggler is unchecked,
 		//duplicate the start date into end date field
 		populateEndDate: function(){
 			if (!this.$endDateToggle.is(':checked')) {
 				this.$endDateControl.val(this.$startDateControl.val());	
 			}
 		},
-
+		//Initialise a new event card view based on the model passed in
 		createEventCard: function(eventData){
 			//TODO: plug in jquery date picker
 			
@@ -148,6 +165,7 @@ define([
 			var newEventCard = new EventCard({
 				model: newEvent
 			});
+			//Render the view and prepend the returned object to the event board
 			$('[data-event="show"]').prepend(newEventCard.render().$el);
 		},
 

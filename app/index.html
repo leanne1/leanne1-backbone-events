@@ -7,7 +7,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="build/styles/main.css">
-        <script src="bower_components/modernizr/modernizr.js"></script>
+        <script src="build/scripts/head/head.js"></script>
     </head>
     <body>
         <section class="wrapper">
@@ -46,7 +46,7 @@
                 </nav>
                 <div class="col-1 clearfix">
                     <section class="events-create" data-event="add">
-                        <form role="form" data-event="configure" novalidate>
+                        <form role="form" data-event="configure" method="get" action="/" novalidate>
                             <div class="box box-pullout">
                                 <h2 class="space-mbxl">Add a fundraising event</h2>
                                 <fieldset class="form-create-event">
@@ -55,7 +55,7 @@
                                         <label for="event-name" class="txt-label label-block" aria-describedby="required-key">
                                             Name of Event*
                                         </label>
-                                        <input type="text" data-event-config="eventName" data-event-property="eventName" id="event-name" data-error-empty="Please include an event name" required aria-required="true" />
+                                        <input type="text" name="event-name" data-event-config="eventName" data-event-property="eventName" id="event-name" data-error-empty="Please include an event name" required aria-required="true" />
                                     </div>
 
                                     <div class="form-section clearfix space-mbxl">
@@ -63,14 +63,14 @@
                                             <label for="event-start" class="txt-label label-block" aria-describedby="required-key">
                                                 Start date*
                                             </label>
-                                            <input type="date" data-event-config="startDate" data-event-property="startDate" id="event-start" data-error-empty="Please include an event start date" data-error-start-date="The event start date must not be in the past" required aria-required="true" aria-controls="event-end" />
+                                            <input type="date" name="event-start" data-event-config="startDate" data-event-property="startDate" id="event-start" data-error-empty="Please include an event start date" data-error-start-date="The event start date must not be in the past" required aria-required="true" aria-controls="event-end" />
                                             <span class="icn icn-cal" aria-hidden="true"></span>
                                         </div>
                                         <div class="form-two-col space-mbxs input-has-icon">
                                             <label for="event-end" class="txt-label label-block" aria-describedby="required-key">
                                                 End date*
                                             </label>
-                                            <input type="date" data-event-config="endDate" data-event-property="endDate" id="event-end"  data-error-empty="Please include an event end date" data-error-end-date="The event end date must be on or after the start date" required aria-required="true" />
+                                            <input type="date" name="event-end" data-event-config="endDate" data-event-property="endDate" id="event-end"  data-error-empty="Please include an event end date" data-error-end-date="The event end date must be on or after the start date" required aria-required="true" />
                                             <span class="icn icn-cal" aria-hidden="true"></span>
                                         </div> 
                                         <input class="js-visible" type="checkbox" data-event-config="addEnd" id="event-addEnd" checked aria-controls="event-end" />   
@@ -84,7 +84,7 @@
                                         <label for="event-start-location" class="txt-label label-block">
                                             Village, town or city where event begins
                                         </label>
-                                        <input type="text" data-event-config="startLocation" data-event-property="startLocation" id="event-start-location" />
+                                        <input type="text" name="event-location" data-event-config="startLocation" data-event-property="startLocation" id="event-start-location" />
                                     </div>
 
                                     <div class="form-section has-popup">
@@ -112,9 +112,9 @@
                                         <label for="event-description" class="txt-label label-block">
                                             Event description
                                         </label>
-                                        <textarea data-event-config="description" data-event-property="description" id="event-description"></textarea>
+                                        <textarea name="event-description" data-event-config="description" data-event-property="description" id="event-description"></textarea>
                                     </div>
-                                    <input type="hidden" data-event-config="userId" data-event-property="userId" value="123456789" aria-hidden="true" aria-readonly="true" />
+                                    <input type="hidden" name="user-id" data-event-config="userId" data-event-property="userId" value="123456789" aria-hidden="true" aria-readonly="true" />
                                     <span class="txt-aside" id="required-key">
                                         * indicates a required field
                                     </span>

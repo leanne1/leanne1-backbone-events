@@ -6,7 +6,7 @@ require.config({
     paths: {
         text:           '../bower_components/requirejs-text/text',
         jquery:         '../bower_components/jquery/dist/jquery',
-        underscore:     '../bower_components/lodash/dist/lodash',
+        underscore:     '../bower_components/underscore/underscore',
         Handlebars:     '../bower_components/handlebars/handlebars',
         Backbone:       '../bower_components/backbone/backbone',
         Evt:            '../scripts/mvc/model/Event',
@@ -24,7 +24,7 @@ require([
     'eventBuilder'
 ], function (eventBuilder) {
 	//Bootstrap eventBuilder application for the page.
-	//We can add this module and its dependencies anywhere on the site 
+	//We can add this module anywhere on the site 
 	//by simply requiring it and calling its init method:
 	eventBuilder.init();
 });

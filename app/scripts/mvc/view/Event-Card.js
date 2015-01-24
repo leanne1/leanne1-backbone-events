@@ -1,13 +1,13 @@
 'use strict';
 
 define([
-	'underscore',
 	'Backbone',
 	'jquery',
 	'Handlebars',
 	'text!tmplEventCard'
-	], function(_, Backbone, $, Handlebars, tmplEventCard){
+	], function(Backbone, $, Handlebars, tmplEventCard){
 	
+	//Constructor for event card view
 	var EventCard = Backbone.View.extend({
 		
 		tagName: 'li',
@@ -27,7 +27,8 @@ define([
 		//+++++++++++++++++++++++++++++++++++++++++
 		//+ Render
 		//+++++++++++++++++++++++++++++++++++++++++
-
+		//Render event card view, with escaped model values for security
+		//Return it so the rendered view can be used by the method that called it
 		render: function(){
 			this.$el.html(this.eventCardTemplate({
 				startDate: this.model.escape('startDate'),

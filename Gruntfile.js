@@ -36,58 +36,14 @@ module.exports = function(grunt) {
             options: {
                 separator: ';',
             },
-            // js_app: {
-            //     files: [{
-            //         src: [
-            //             sourceDir + '/js/lib-extends/*.js',
-            //             sourceDir + '/js/app/models/slot.js',
-            //             sourceDir + '/js/app/collections/slots.js',
-            //             sourceDir + '/js/app/views/cal-view.js',
-            //             sourceDir + '/js/app/views/dashboard-view.js',
-            //             sourceDir + '/js/app/views/month-view.js',
-            //             sourceDir + '/js/app/views/day-view.js',
-            //             sourceDir + '/js/app/views/booking-view.js',
-            //             sourceDir + '/js/app/views/slot-view.js',
-            //             sourceDir + '/js/app/views/detail-view.js',
-            //             sourceDir + '/js/app/views/cancel-all-view.js'
-            //         ],
-            //         dest: sourceDir + 'js/build-source/app.js'
-            //     },
-            //     {
-            //         src: [
-            //             sourceDir + '/js/cal-public/**/*.js'
-            //         ],
-            //         dest: buildDir + 'js/cal-public.js'
-            //     },
-            //     {
-            //         src: [
-            //             sourceDir + '/js/cal-private/**/*.js'
-            //         ],
-            //         dest: buildDir + 'js/cal-private.js', 
-            //     }]
-            // },
-            // js_lib: {
-            //     files: [{
-            //         src: [
-            //             sourceDir + '/js/lib/jquery-1.11.1.js',
-            //             sourceDir + '/js/lib/jquery-ui.js',  
-            //             sourceDir + '/js/lib/bootstrap.min.js',  
-            //             sourceDir + '/js/lib/handlebars-v1.3.0.js',  
-            //             sourceDir + '/js/lib/underscore.js',  
-            //             sourceDir + '/js/lib/backbone.js',
-            //         ],
-            //         dest: sourceDir + 'js/build-source/lib.js', 
-            //     }]
-            // },
-            // js_all: {
-            //     files: [{
-            //         src: [
-            //             sourceDir + '/js/build-source/lib.js',
-            //             sourceDir + '/js/build-source/app.js'
-            //         ],
-            //         dest: buildDir + 'js/main.js', 
-            //     }]
-            // },
+            js_head: {
+                files: [{
+                    src: [
+                        sourceDir + 'scripts/head/*.js'
+                    ],
+                    dest: buildDir + 'scripts/head/head.js'
+                }]
+            },
             css: {
                 files: [{
                     src: [
@@ -99,32 +55,23 @@ module.exports = function(grunt) {
                 }]
             }
         },
-        //TODO: use require JS optimizer for this
+        //TODO: use require JS optimizer for require files
         //Uglify js
-        // uglify: {
-        //     options: {
-        //         compress: {
-        //             drop_console: false
-        //         }
-        //     },
-        //     dist: {
-        //         files: [
-        //             {
-        //                 src: '<%= concat.js_all.files[0].dest %>',
-        //                 dest: buildDir + 'js/main.js'
-        //             },
-        //             {
-        //                 src: '<%= concat.js_app.files[1].dest %>',
-        //                 dest: buildDir + 'js/cal-public.js'
-        //             },
-        //             {
-        //                 src: '<%= concat.js_app.files[2].dest %>',
-        //                 dest: buildDir + 'js/cal-private.js'
-        //             }
-        //         ]
-
-        //     }
-        // },
+        uglify: {
+            options: {
+                compress: {
+                    drop_console: true
+                }
+            },
+            dist: {
+                files: [
+                    {
+                        src: '<%= concat.js_head.files[0].dest %>',
+                        dest: buildDir + 'scripts/head/head.js'
+                    }
+                ]
+            }
+        },
 
         //Minify CSS
         cssmin: {
@@ -163,14 +110,11 @@ module.exports = function(grunt) {
         //     dist: {
         //         files: [{
         //             expand: true,
-        //             cwd: sourceDir + 'images/jquery-ui',
+        //             cwd: sourceDir + 'scripts/head/',
         //             src: [
-        //                 '*.jpg',
-        //                 '*.png',
-        //                 '*.gif',
-        //                 '*.svg'
-        //             ],
-        //             dest: buildDir + 'css/images/'
+        //                 '*.js'
+        //                 ],
+        //             dest: buildDir + 'scripts/head/'
         //         }]
         //     }
         // }        
@@ -188,6 +132,6 @@ module.exports = function(grunt) {
     
     //Grunt tasks
     grunt.registerTask('dev',['watch']);
-    //TODO --> add these back later: 'copy', 'uglify', 
-    grunt.registerTask('build',['sass', 'concat', 'cssmin', 'imagemin', 'htmlmin']); 
+    //TODO --> add these back later: 'copy', , 
+    grunt.registerTask('build',['sass', 'concat', 'cssmin', 'imagemin', 'htmlmin', 'uglify']); 
 }

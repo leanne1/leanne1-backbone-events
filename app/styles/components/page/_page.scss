@@ -21,7 +21,7 @@ body {
 //MEDIUM
 @media screen and (min-width: $breakpoint-m) {
 	.col-1 {
-		padding-right: 320px;
+		padding-right: 300px + $lSpacingPx;
 		position: relative;
 	}
 	.events-board {
