@@ -15,7 +15,7 @@ require.config({
         EventCard:      '../scripts/mvc/view/Event-Card',
         EventForm:      '../scripts/mvc/view/Event-Form',
         tmplEventCard:  '../scripts/mvc/template/event-card.html',
-        datepicker:     '../bower_components/datetimepicker/jquery.datetimepicker',
+        datepicker:     '../bower_components/datepicker-fr/ui/datepicker',
         eventBuilder:   '../scripts/mvc/init'
     }
 });

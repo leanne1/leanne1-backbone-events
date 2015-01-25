@@ -26,7 +26,9 @@
 
 ### What's missing ###
 Lack of time meant the following features were omitted:
-- JS unit tests
-- **I have not tested the app x-browser, but based on my knowledge I believe it should work on all browsers required. IE8 will by default render the mobile-first version of the layout. Ideally an IE8-only stylesheet could be included by way of a conditional comment.
-- I made some assumptions about the build, as I did not have web access to clarify. Specifially that the side bar show a fixed number of events [I chose 4]. This could be improved with a carousel, or pagination, allowing all events to be browsed without leaving the page.
+
+- JS unit tests 
+- ReuireJS optimizer has not been implemeted so JS assets are not minified  
+- **I have not tested the app x-browser, but based on my knowledge I believe it should work on all browsers required. IE8 will by default render the mobile-first version of the layout. Ideally an IE8-only stylesheet could be included by way of a conditional comment.    
+- I made some assumptions about the build, as I did not have web access to clarify. Specifially that the side bar show a fixed number of events [I chose 4]. This could be improved with a carousel, or pagination, allowing all events to be browsed without leaving the page.  
 
