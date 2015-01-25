@@ -856,8 +856,6 @@ p {
   font-weight: bold;
   background-color: #78256d;
   padding: 6px 11px;
-  background-image: -webkit-linear-gradient(#995389 0%, #78256d 100%);
-  background-image: -o-linear-gradient(#995389 0%, #78256d 100%);
   background-image: linear-gradient(#995389 0%, #78256d 100%); }
 
 .btn-secondary {
@@ -866,8 +864,6 @@ p {
   border: solid 1px #eaac00;
   background-color: #efb702;
   padding: 5px 10px;
-  background-image: -webkit-linear-gradient(#efb702 0%, #eac55e 100%);
-  background-image: -o-linear-gradient(#efb702 0%, #eac55e 100%);
   background-image: linear-gradient(#efb702 0%, #eac55e 100%); }
 
 fieldset {
@@ -955,6 +951,9 @@ textarea {
 
 .crumb:last-child:after {
   content: ''; }
+
+.crumb > a:hover {
+  text-decoration: underline; }
 
 .list-stacked > li {
   border-top: solid 1px #9d938d;

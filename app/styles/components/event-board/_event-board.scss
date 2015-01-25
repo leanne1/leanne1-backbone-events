@@ -1,6 +1,8 @@
 .charity-logo {
 	width: 166px;
 	height: 62px;
+	//Ideally use something like usemin so as not to use bulid files in dev code, 
+	//but usemin doesn't support requireJS another solution should be found...
 	background: transparent url('../../build/images/sprites/sprite.png') 0 0 no-repeat;
 }
 .event-details {

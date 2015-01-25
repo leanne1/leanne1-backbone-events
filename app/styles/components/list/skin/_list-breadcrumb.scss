@@ -12,3 +12,6 @@
 .crumb:last-child:after {
 	content: '';
 }
+.crumb > a:hover {
+	text-decoration: underline;
+}

@@ -37,7 +37,7 @@ var Evt = new mongoose.Schema({
     createdTimeStamp: Number,
     prettyStartDate: String,
     prettyStartMonth: String,
-    prettyStartYear: String
+    prettyStartYear: String,
     eventId: String
 });
 
