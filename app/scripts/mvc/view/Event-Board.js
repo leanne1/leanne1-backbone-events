@@ -20,7 +20,7 @@ define([
 			this.collection.fetch({ reset: true });
 			
 			//Show only a specified count of cards on the events board
-			this.maxEventsToShow = 4;
+			this.maxEventsToShow = 3;
 
 			//+++++++++++++++++++++++++++++++++++++++++
 			//+ API event listeners
@@ -56,9 +56,11 @@ define([
 		},
 
 		//Remove the last card when we add a new one to the board
-		//so to keep to our visible card limit
+		//if we are at the visible card limit
 		removeLastEventCard: function(){
-			$('[data-event-card]').last().remove();
+			if ( $('[data-event-card]').length >= this.maxEventsToShow ) {
+				$('[data-event-card]').last().remove();	
+			}
 		}
 	});
 

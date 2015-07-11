@@ -15,7 +15,7 @@ define([
 		events: {
 			'click [data-event-config="submit"]' : 'createEvent',
 			'click [data-event-config="addEnd"]' : 'toggleEndDateControl',
-			'blur [data-event-config="startDate"]' : 'populateEndDate',
+			'change [data-event-config="startDate"]' : 'populateEndDate',
 			'keyup [data-button="open-info"]' : 'showOpenInfoPopup',
 			'mouseover [data-button="open-info"]' : 'showOpenInfoPopup',
 			'click [data-button="open-info"]' : 'showOpenInfoPopup'
@@ -156,11 +156,13 @@ define([
 				this.$endDateControl.val(this.$startDateControl.val());
 			}
 		},
-		//When the start date control is blurred, if the end date toggler is unchecked,
+		//When the start date control is changed, if the end date toggler is unchecked,
 		//duplicate the start date into end date field
 		populateEndDate: function(){
 			if (!this.$endDateToggle.is(':checked')) {
+				// this.$endDateControl.removeAttr('disabled');
 				this.$endDateControl.val(this.$startDateControl.val());	
+				// this.$endDateControl.attr('disabled', 'disabled');
 			}
 		},
 		//Initialise a new event card view based on the model passed in

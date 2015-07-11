@@ -8,6 +8,7 @@
 
 
 ### Start up ###
+- Build all assets by runnning ```grunt build``` from the root directory
 - On the command line, start up mongo with ```mongod```
 - Next, navigate to the app's server directory
 - Run ```node server```

@@ -18,7 +18,7 @@ define([
 			this.extendModel();
 
 			//FOR DEV - delete all events in db
-			//this.destroy();
+			// this.destroy();
 		},
 		
 		//+++++++++++++++++++++++++++++++++++++++++
