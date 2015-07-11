@@ -58,7 +58,6 @@ define([
 		//Remove the last card when we add a new one to the board
 		//so to keep to our visible card limit
 		removeLastEventCard: function(){
-			console.log('removeLastEventCard called')
 			$('[data-event-card]').last().remove();
 		}
 	});

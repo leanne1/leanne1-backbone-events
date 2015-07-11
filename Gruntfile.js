@@ -26,11 +26,6 @@ module.exports = function(grunt) {
                 files: [sourceDir + 'images/**/*.{png,jpg,jpeg}'],
                 tasks: ['imagemin']
             },
-            //TODO: use requirejs-optimizer for JS
-            // js: {
-            //     files: [sourceDir + 'js/**/*.js', '!' + sourceDir + 'js/lib/*.js', '!' + sourceDir + 'js/build-source/*.js'],
-            //     tasks: ['concat:js_app', 'concat:js_all']
-            // },
             options: {
                 livereload: true
             }  
@@ -64,7 +59,7 @@ module.exports = function(grunt) {
                 ]
             }
         },
-        //TODO: use require JS optimizer for require files
+        //TODO: use require JS optimizer for require JS files
         //Uglify js
         uglify: {
             options: {

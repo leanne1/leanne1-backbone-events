@@ -118,11 +118,8 @@ define([
 		//assumption made here that start dates cannot be retrospectively added
 		validateStartDate: function ($control) {
 			if ($control.data('event-property') === 'startDate') {
-				console.log($('[data-event-property="startDate"]').val())
 				var startDate = new Date ($('[data-event-property="startDate"]').val()).getTime();	
 				var today = new Date().setUTCHours(0,0,0,0);
-				console.log('startDate TIMe', startDate);
-				console.log('today TIMe', today);
 				
 				return today <= startDate;
 			}
