@@ -1,5 +1,4 @@
-#Visual test submission#
-##Leanne Tite##
+#Backbone events board#
 
 ### Installation ###
 - The app runs off a Node / Express server. To run the app you need to have NodeJS [http://nodejs.org/] installed.
